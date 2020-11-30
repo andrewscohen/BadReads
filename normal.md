@@ -15,3 +15,17 @@ npx sequelize-cli model:generate --name AuthorGenre --attributes authorId:intege
 npx sequelize-cli model:generate --name BookGenre --attributes bookId:integer,genreId:integer
 npx sequelize-cli model:generate --name UserBook --attributes userId:integer,bookId:integer,review:text,rating:integer,status:boolean
 npx sequelize-cli model:generate --name Friend --attributes userId:integer,friendId:integer
+
+npx sequelize-cli seed:generate --name AuthorData
+npx sequelize-cli seed:generate --name GenreData
+npx sequelize-cli seed:generate --name PublisherData
+npx sequelize-cli seed:generate --name BookData
+npx sequelize-cli seed:generate --name UserData
+npx sequelize-cli seed:generate --name BookAuthorData
+npx sequelize-cli seed:generate --name AuthorGenreData
+npx sequelize-cli seed:generate --name BookGenreData
+npx sequelize-cli seed:generate --name UserBookData
+npx sequelize-cli seed:generate --name FriendData
+
+npx sequelize-cli db:migrate
+npx sequelize-cli db:seed:all
