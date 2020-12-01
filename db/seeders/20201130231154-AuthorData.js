@@ -2,16 +2,16 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-      return queryInterface.bulkInsert('People', [
-        {name:'', createdAt: new Date(),updatedAt: new Date()},
-        {name:'', createdAt: new Date(),updatedAt: new Date()},
-        {name:'', createdAt: new Date(),updatedAt: new Date()},
-        {name:'', createdAt: new Date(),updatedAt: new Date()},
-        {name:'', createdAt: new Date(),updatedAt: new Date()}
+    return queryInterface.bulkInsert('Authors', [
+      { name: '', createdAt: new Date(), updatedAt: new Date() },
+      { name: '', createdAt: new Date(), updatedAt: new Date() },
+      { name: '', createdAt: new Date(), updatedAt: new Date() },
+      { name: '', createdAt: new Date(), updatedAt: new Date() },
+      { name: '', createdAt: new Date(), updatedAt: new Date() }
     ]);
   },
 
   down: (queryInterface, Sequelize) => {
-      return queryInterface.bulkDelete('People', null, {});
+    return queryInterface.bulkDelete('Authors', null, {});
   }
 };
