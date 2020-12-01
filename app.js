@@ -8,8 +8,12 @@ const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const csrf = require('csrf');
+const csrfProtection = csrf({cookie: true})
 
 const app = express();
+
+const asyncHandler = (handler)=>(req,res,next)=>handler(req,res,next).catch(next)
 
 // view engine setup
 app.set('view engine', 'pug');
@@ -37,6 +41,7 @@ store.sync();
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/signUp', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -55,3 +60,4 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
+module.exports = {csrfProtection, asyncHandler}
