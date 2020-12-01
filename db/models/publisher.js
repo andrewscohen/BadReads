@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     location: DataTypes.STRING
   }, {});
   Publisher.associate = function(models) {
-    // associations can be defined here
+    Publisher.hasMany(models.Book,{foreignKey: "publisherId"})
   };
   return Publisher;
 };
