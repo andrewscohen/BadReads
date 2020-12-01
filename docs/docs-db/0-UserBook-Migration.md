@@ -1,59 +1,64 @@
 # UserBook Table
+
 ---
+
 ## Migration Generate Code
+
 ```javascript
 npx sequelize-cli model:generate --name UserBook --attributes userId:integer,bookId:integer,review:text,rating:integer,status:boolean
 ```
 
 ## Migration File Code
+
 ```javascript
-'use strict';
+"use strict";
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('UserBooks', {
+    return queryInterface.createTable("UserBooks", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       userId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: {model:"Users"}
+        references: { model: "Users" },
       },
       bookId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: {model:"Books"}
+        references: { model: "Books" },
       },
       review: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
       },
       rating: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       status: {
         allowNull: false,
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('UserBooks');
-  }
+    return queryInterface.dropTable("UserBooks");
+  },
 };
 ```
 
 ## Models File Code
+
 ```javascript
 'use strict';
 module.exports = (sequelize, DataTypes) => {
@@ -65,7 +70,8 @@ module.exports = (sequelize, DataTypes) => {
     status: DataTypes.BOOLEAN
   }, {});
   UserBook.associate = function(models) {
-    // associations can be defined here
+    UserBook.belongsTo(models.User{foreignKey:"userId"})
+    UserBook.belongsTo(models.Book{foreignKey:"bookId"})
   };
   return UserBook;
 };

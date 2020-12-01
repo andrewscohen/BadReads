@@ -1,58 +1,62 @@
 # Book Table
+
 ---
+
 ## Migration Generate Code
+
 ```javascript
 npx sequelize-cli model:generate --name Book --attributes name:string,description:text,releaseDate:date,pageCount:integer,publisherId:integer
 ```
 
 ## Migration File Code
+
 ```javascript
-'use strict';
+"use strict";
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Books', {
+    return queryInterface.createTable("Books", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       name: {
         allowNull: false,
-        type: Sequelize.STRING(150)
+        type: Sequelize.STRING(150),
       },
       description: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
       },
       releaseDate: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       pageCount: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       publisherId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: {model: "Publishers"}
+        references: { model: "Publishers" },
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Books');
-  }
+    return queryInterface.dropTable("Books");
+  },
 };
-
 ```
 
 ## Models File Code
+
 ```javascript
 'use strict';
 module.exports = (sequelize, DataTypes) => {
@@ -64,7 +68,10 @@ module.exports = (sequelize, DataTypes) => {
     publisherId: DataTypes.INTEGER
   }, {});
   Book.associate = function(models) {
-    // associations can be defined here
+    Book.belongsTo(Models.Publisher{foreignKey:"publisherId"});
+    Book.hasMany(Models.BookAuthor{foreignKey:"bookId"});
+    Book.hasMany(Models.BookGenre{foreignKey:"bookId"});
+
   };
   return Book;
 };

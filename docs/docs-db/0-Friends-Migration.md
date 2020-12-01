@@ -1,49 +1,54 @@
 # Friends Table
+
 ---
+
 ## Migration Generate Code
+
 ```javascript
 npx sequelize-cli model:generate --name Friend --attributes userId:integer,friendId:integer
 ```
 
 ## Migration File Code
+
 ```javascript
-'use strict';
+"use strict";
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Friends', {
+    return queryInterface.createTable("Friends", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       userId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: {model: "Users"}
+        references: { model: "Users" },
       },
       friendId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: {model: "Users"}
+        references: { model: "Users" },
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Friends');
-  }
+    return queryInterface.dropTable("Friends");
+  },
 };
 ```
 
 ## Models File Code
+
 ```javascript
 'use strict';
 module.exports = (sequelize, DataTypes) => {
@@ -52,7 +57,7 @@ module.exports = (sequelize, DataTypes) => {
     friendId: DataTypes.INTEGER
   }, {});
   Friend.associate = function(models) {
-    // associations can be defined here
+      Friend.hasMany(Models.User{foreignKey:"userId"});
   };
   return Friend;
 };

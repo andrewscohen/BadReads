@@ -1,48 +1,53 @@
 # Publishers Table
+
 ---
+
 ## Migration Generate Code
+
 ```javascript
 npx sequelize-cli model:generate --name Publisher --attributes name:string,location:string
 ```
 
 ## Migration File Code
+
 ```javascript
-'use strict';
+"use strict";
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Publishers', {
+    return queryInterface.createTable("Publishers", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       name: {
         allowNull: false,
         type: Sequelize.STRING(75),
-        unique:true
+        unique: true,
       },
       location: {
         allowNull: false,
-        type: Sequelize.STRING(100)
+        type: Sequelize.STRING(100),
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Publishers');
-  }
+    return queryInterface.dropTable("Publishers");
+  },
 };
 ```
 
 ## Models File Code
+
 ```javascript
 'use strict';
 module.exports = (sequelize, DataTypes) => {
@@ -51,7 +56,7 @@ module.exports = (sequelize, DataTypes) => {
     location: DataTypes.STRING
   }, {});
   Publisher.associate = function(models) {
-    // associations can be defined here
+    Publisher.hasMany(models.Book{foreignKey:"publisherId"})
   };
   return Publisher;
 };

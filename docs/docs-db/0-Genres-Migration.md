@@ -1,45 +1,49 @@
 # Genres Table
+
 ---
+
 ## Migration Generate Code
+
 ```javascript
 npx sequelize-cli model:generate --name Genre --attributes name:string
 ```
 
 ## Migration File Code
+
 ```javascript
-'use strict';
+"use strict";
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Genres', {
+    return queryInterface.createTable("Genres", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       name: {
         allowNull: false,
         type: Sequelize.STRING(50),
-        unique: true
+        unique: true,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Genres');
-  }
+    return queryInterface.dropTable("Genres");
+  },
 };
-
 ```
 
 ## Models File Code
+
 ```javascript
 'use strict';
 module.exports = (sequelize, DataTypes) => {
@@ -47,7 +51,8 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING
   }, {});
   Genre.associate = function(models) {
-    // associations can be defined here
+   Genre.hasMany(models.AuthorGenre{foreignKey:"genreId"})
+   Genre.hasMany(models.BookGenre{foreignKey:"genreId"})
   };
   return Genre;
 };
