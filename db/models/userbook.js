@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     bookId: DataTypes.INTEGER,
     review: DataTypes.TEXT,
     rating: DataTypes.INTEGER,
-    status: DataTypes.BOOLEAN
+    status: DataTypes.STRING
   }, {});
   UserBook.associate = function(models) {
     // associations can be defined here

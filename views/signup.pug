@@ -1,0 +1,27 @@
+extends layout.pug
+
+
+block content
+    if errors
+        ul
+            p The following error(s) occured:
+            each error in errors
+                li= error
+
+    form(action="users/signup", method="post")
+        div
+            input(type="hidden" name="_csrf" value= csrfToken)
+        div
+            label Username
+            input(type="text" name="userName" value=user.userName placeholder='Username' required)
+        div
+            label Email Please
+            input(type="text" name="email" value=user.email placeholder='Email' required)
+        div
+            label Password
+            input(type="text" name="password" value=user.password placeholder='Password' required)
+        div
+            label Confirm Password
+            input(type="text" name="confirmPassword" placeholder='Confirm Password' required)
+        div
+            button(type="submit") Submit
