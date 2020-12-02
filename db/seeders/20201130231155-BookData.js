@@ -188,6 +188,14 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },
+      {
+        name: "While my gua",
+        description: "The smash prequel to \"Murdering Last Summer\" ",
+        pageCount: 345,
+        publisherId: 10,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
     ]);
   },
 
