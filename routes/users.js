@@ -2,16 +2,16 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 
+const { csrfProtection, asyncHandler } = require("./index");
+
 const {
-  csrfProtection,
-  asyncHandler,
+  db,
+  validationResult,
   loginValidators,
   signupValidators,
-  validationResult,
-} = require("./index");
+} = require("./validators");
 
 const { loginUser, logoutUser } = require("../auth");
-const db = require("../db/models");
 
 router.get("/", function (req, res, next) {
   //query books
