@@ -11,7 +11,7 @@ const {
   signupValidators,
 } = require("./validators");
 
-const { loginUser, logoutUser } = require("../auth");
+const { AuthloginUser, logoutUser } = require("../auth");
 
 router.get("/", function (req, res, next) {
   //query books
@@ -51,7 +51,7 @@ router.post(
       const hashedPassword = await bcrypt.hash(password, 10);
       user.password = hashedPassword;
       await user.save();
-      loginUser(req, res, user);
+      AuthloginUser(req, res, user);
       res.redirect("/");
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
@@ -94,7 +94,7 @@ router.post(
         );
 
         if (passwordMatch) {
-          loginUser(req, res, user);
+          AuthloginUser(req, res, user);
           return res.redirect("/");
         }
       }
