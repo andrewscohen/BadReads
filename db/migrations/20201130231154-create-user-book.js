@@ -11,12 +11,12 @@ module.exports = {
       userId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: {model:"Users"}
+        references: { model: "Users" }
       },
       bookId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: {model:"Books"}
+        references: { model: "Books" }
       },
       review: {
         type: Sequelize.TEXT
@@ -27,7 +27,6 @@ module.exports = {
       status: {
         allowNull: false,
         type: Sequelize.STRING(10),
-        unique: true
       },
       createdAt: {
         allowNull: false,
