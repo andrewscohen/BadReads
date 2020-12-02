@@ -2,3 +2,6 @@ extends layout.pug
 
 
 block content
+    for each book in books
+        div
+            p= book.name
