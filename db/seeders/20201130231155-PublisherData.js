@@ -45,6 +45,31 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },
+      {
+        name: "Harper Collins Publishers LLC",
+        location: "New York, New York",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: "Simon & Schuster Publishing",
+        location: "New York, New York",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: "Trash Factory",
+        location: "Earth, Twenty Twenty",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: "J'ne Compre Pa & Sons Publishing LLC."
+        ,
+        location: "Tokyo, Japan",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
     ]);
   },
 
