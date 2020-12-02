@@ -4,16 +4,18 @@ extends layout.pug
 block content
     form(action="/user", method="post")
         div
-            input(type="hidden", name="_csrf", value= csrfToken)
+            input(type="hidden" name="_csrf" value= csrfToken)
         div
-            label
-            input(type="", name="", value="")
+            label Username
+            input(type="text" name="userName" required)
         div
-            label
-            input(type="", name="", value="")
+            label Email Please
+            input(type="text" name="email" required)
         div
-            label
-            input(type="", name="", value="")
+            label Password
+            input(type="text" name="password" required)
         div
-            label
-            input(type="", name="", value="")
+            label Confirm Password
+            input(type="text" name="confirmPassword" required)
+        div
+            button(type="submit") Submit

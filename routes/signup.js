@@ -12,7 +12,7 @@ router.get('/', csrfProtection, asyncHandler(async (req, res) => {
 
   res.render('user-register', {
     title: 'Register',
-    user,
+    userName,
     csrfToken: req.csrfToken(),
   });
 }));
@@ -26,13 +26,13 @@ router.post('/user', csrfProtection, userValidators,
   asyncHandler(async (req, res) => {
     const {
       emailAddress,
-      name,
+      userName,
       password,
     } = req.body;
 
     const user = db.User.build({
       emailAddress,
-      name,
+      userName,
     });
 
     const validatorErrors = validationResult(req);
