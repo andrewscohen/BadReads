@@ -10,7 +10,7 @@ module.exports = {
       },
       name: {
         allowNull: false,
-        type: Sequelize.STRING(150)
+        type: Sequelize.STRING(250)
       },
       description: {
         type: Sequelize.TEXT
