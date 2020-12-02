@@ -1,6 +1,6 @@
 const express = require("express");
+const bcrypt = require("bcryptjs");
 const router = express.Router();
-const bcrypt = require("bcrypt");
 
 const { csrfProtection, asyncHandler } = require("./index");
 
@@ -70,7 +70,7 @@ router.get(
   csrfProtection,
   asyncHandler(async (req, res) => {
     res.render("login", {
-      title: "placeholder",
+      title: "Login",
       csrfToken: req.csrfToken(),
     });
   })
@@ -82,15 +82,15 @@ router.post(
   loginValidators,
   asyncHandler(async (req, res) => {
     let errors = [];
-    const { emailAddress, password } = req.body;
+    const { email, password } = req.body;
     const validatorErrors = validationResult(req);
 
     if (validatorErrors.isEmpty()) {
-      const user = await db.User.findOne({ where: { emailAddress } });
-      if (user !== null) {
+      const user = await db.User.findOne({ where: { email } });
+      if (user) {
         const passwordMatch = await bcrypt.compare(
           password,
-          user.hashedPassword.toString()
+          user.password.toString()
         );
 
         if (passwordMatch) {
