@@ -8,14 +8,9 @@ const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const usersRouter = require('./routes/signUp');
-
-const csrf = require('csrf');
-const csrfProtection = csrf({cookie: true})
+const signUpRouter = require('./routes/signup');
 
 const app = express();
-
-const asyncHandler = (handler)=>(req,res,next)=>handler(req,res,next).catch(next)
 
 // view engine setup
 app.set('view engine', 'pug');
@@ -62,4 +57,3 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
-module.exports = {csrfProtection, asyncHandler}

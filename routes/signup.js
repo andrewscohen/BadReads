@@ -1,12 +1,13 @@
 const express = require('express');
-const {csrfProtection, asyncHandler} = require('../app')
+
 const router = express.Router();
 
 const { check, validationResult } = require('express-validator');
 const db = require('../db/models');
 
 
-router.get('/', csrfProtection, asyncHandler(async(req, res) => {
+
+router.get('/', csrfProtection, asyncHandler(async (req, res) => {
   const user = db.User.build();
 
   res.render('user-register', {
@@ -17,7 +18,8 @@ router.get('/', csrfProtection, asyncHandler(async(req, res) => {
 }));
 
 const userValidators = [
-  // TODO Define the user validators.
+  // TODO Define the user validators.c
+
 ];
 
 router.post('/user', csrfProtection, userValidators,
