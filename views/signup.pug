@@ -2,18 +2,24 @@ extends layout.pug
 
 
 block content
-    form(action="/user", method="post")
+    if errors
+        ul
+            p The following error(s) occured:
+            each error in errors
+                li= error
+
+    form(action="users/signup", method="post")
         div
             input(type="hidden" name="_csrf" value= csrfToken)
         div
             label Username
-            input(type="text" name="userName" value=userName required)
+            input(type="text" name="userName" value=user.userName required)
         div
             label Email Please
-            input(type="text" name="email" value=email required)
+            input(type="text" name="email" value=user.email required)
         div
             label Password
-            input(type="text" name="password" value=password required)
+            input(type="text" name="password" value=user.password required)
         div
             label Confirm Password
             input(type="text" name="confirmPassword" required)

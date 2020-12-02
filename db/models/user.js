@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
     userName: DataTypes.STRING,
     email: DataTypes.STRING,
-    password: DataTypes.BYTEA
+    password: DataTypes.STRING.BINARY
   }, {});
   User.associate = function(models) {
     User.belongsToMany(models.Book, {through:models.UserBook})
