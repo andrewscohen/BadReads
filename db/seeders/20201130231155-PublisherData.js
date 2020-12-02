@@ -33,6 +33,18 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },
+      {
+        name: "The Writer’s Coffee Shop (TWCS) Publishing House",
+        location: "New South Wales, Australia",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: "Charles Scribner's Sons",
+        location: "New York, New York",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
     ]);
   },
 
