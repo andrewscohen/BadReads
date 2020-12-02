@@ -12,9 +12,9 @@ block content
             input(type="hidden" name="_csrf" value= csrfToken)
         div
             label Email Please
-            input(type="text" name="email" value=user.email required)
+            input(type="text" name="email" value=user.email placeholder= 'Email' required)
         div
             label Password
-            input(type="text" name="password" value=user.password required)
+            input(type="text" name="password" value=user.password placeholder='Password' required)
         div
             button(type="submit") Login
