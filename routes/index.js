@@ -1,7 +1,8 @@
 const express = require("express");
-const csrf = require("csrf");
+const csrf = require("csurf");
 const { decodeBase64 } = require("bcryptjs");
 const router = express.Router();
+const db = require('../db/models')
 
 const csrfProtection = csrf({ cookie: true });
 const asyncHandler = (handler) => (req, res, next) =>

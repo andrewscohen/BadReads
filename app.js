@@ -1,15 +1,14 @@
 const express = require("express");
 const session = require("express-session");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
+const { sequelize } = require("./db/models");
 const store = new SequelizeStore({ db: sequelize });
 
 const createError = require("http-errors");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const morgan = require("morgan");
-
-const { sequelize } = require("./db/models");
-const indexRouter = require("./routes/index");
+const {router: indexRouter} = require("./routes/index");
 const usersRouter = require("./routes/users");
 
 const app = express();
@@ -49,4 +48,7 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
-module.exports = app;
+module.exports = {
+  app,
+  session
+}
