@@ -1,0 +1,19 @@
+extends layout.pug
+
+block content
+    div
+        h1=bookInfo.name
+    div
+        p=bookInfo.description
+    div
+        p=bookInfo.releaseDate
+    div
+        p=bookInfo.pageCount
+    div
+        each author in bookInfo.Authors
+            p=author.name
+    div
+        p=bookInfo.Publisher.name
+    div
+        each genre in bookInfo.Genres
+            p=genre.name
