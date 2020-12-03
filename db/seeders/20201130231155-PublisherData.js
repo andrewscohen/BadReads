@@ -64,8 +64,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        name: "J'ne Compre Pa & Sons Publishing LLC."
-        ,
+        name: "J'ne Compre Pa & Sons Publishing LLC.",
         location: "Tokyo, Japan",
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -74,6 +73,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete("Publishers", null, {});
+    return queryInterface.bulkDelete("Publishers");
   },
 };

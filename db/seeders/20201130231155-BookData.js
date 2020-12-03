@@ -174,7 +174,7 @@ module.exports = {
       },
       {
         name: "Murdering Last Summer?",
-        description:"the smash prequel to Who Stole My Lip, Balm" ,
+        description: "the smash prequel to Who Stole My Lip, Balm",
         pageCount: 450,
         publisherId: 10,
         createdAt: new Date(),
@@ -182,15 +182,15 @@ module.exports = {
       },
       {
         name: "Who Stole My Lip, Balm.",
-        description: "The smash prequel to \"Murdering Last Summer\" ",
+        description: 'The smash prequel to "Murdering Last Summer" ',
         pageCount: 345,
         publisherId: 10,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        name:"recursion, loop, duck wine" ,
-        description:"The explination of the prequels for MLS and WSMLB",
+        name: "Recursion, Loop, Duck Wine",
+        description: "The explination of the prequels for MLS and WSMLB",
         pageCount: 345,
         publisherId: 10,
         createdAt: new Date(),
