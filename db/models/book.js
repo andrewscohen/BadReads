@@ -10,9 +10,27 @@ module.exports = (sequelize, DataTypes) => {
   Book.associate = function(models) {
     Book.belongsTo(models.Publisher,{foreignKey:"publisherId"});
 
-    Book.belongsToMany(models.User,{through: models.UserBook})
-    Book.belongsToMany(models.Author,{through: models.BookAuthor})
-    Book.belongsToMany(models.Genre,{through: models.BookGenre})
+    const bookAuthorMap = {
+      foreignKey: "bookId",
+      through: "BookAuthor",
+      otherKey: "authorId"
+    }
+
+    const bookGenreMap = {
+      foreignKey: "bookId",
+      through: "BookGenre",
+      otherKey: "genreId"
+    }
+
+    const userBookMap = {
+      foreignKey: "bookId",
+      through: "UserBook",
+      otherKey: "userId"
+    }
+
+    Book.belongsToMany(models.User, userBookMap);
+    Book.belongsToMany(models.Author, bookAuthorMap);
+    Book.belongsToMany(models.Genre, bookGenreMap);
 
 };
 return Book;
