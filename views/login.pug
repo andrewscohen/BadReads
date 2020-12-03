@@ -9,11 +9,11 @@ block content
 
     form(action="/users/login", method="post" class="form")
         div
-            h2 Sign Up For BadReads
+            h2 Login
             input(type="hidden" name="_csrf" value=csrfToken)
         div
-            input(type="text" name="email" value= email placeholder= 'Email' class="input-bar"  required)
+            input(type="email" name="email" value= email placeholder= 'Email' class="input-bar"  required)
         div
-            input(type="text" name="password" value= password placeholder='Password' class="input-bar"  required)
+            input(type="password" name="password" value= password placeholder='Password' class="input-bar"  required)
         div
-            button(type="submit") Login
+            button(type="submit" class="form-submit-button") Login
