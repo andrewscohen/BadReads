@@ -3,8 +3,7 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert(
-      "BookGenres",
-      [
+      "BookGenres",[
         { bookId: 1, genreId: 3, createdAt: new Date(), updatedAt: new Date() },
         {
           bookId: 1,
@@ -245,6 +244,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete("People");
+    return queryInterface.bulkDelete("BookGenres");
   },
 };
