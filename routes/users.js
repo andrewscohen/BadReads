@@ -22,7 +22,7 @@ router.get(
   "/signup",
   csrfProtection,
   asyncHandler(async (req, res) => {
-    const user = db.User.build();
+    const user = await db.User.build();
 
     res.render("signup", {
       title: "Sign Up",
@@ -39,7 +39,7 @@ router.post(
   asyncHandler(async (req, res) => {
     const { userName, email, password } = req.body;
 
-    const user = db.User.build({
+    const user = await db.User.build({
       userName,
       email,
       password,
@@ -105,7 +105,7 @@ router.post(
 
     res.render("login", {
       title: "Login",
-      emailAddress,
+      email,
       errors,
       csrfToken: req.csrfToken(),
     });

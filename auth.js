@@ -1,4 +1,5 @@
 const db = require("./db/models");
+const {session} = require('./app')
 
 const AuthloginUser = (req, res, user) => {
   req.session.auth = {
