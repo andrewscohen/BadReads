@@ -1,4 +1,4 @@
-extends layout
+extends layout.pug
 
 block content
     if errors
@@ -7,14 +7,13 @@ block content
             each error in errors
                 li= error
 
-    form(action="/users/login", method="post")
+    form(action="/users/login", method="post" class="form")
         div
+            h2 Login
             input(type="hidden" name="_csrf" value=csrfToken)
         div
-            label Email Please
-            input(type="text" name="email" value= email placeholder= 'Email' required)
+            input(type="email" name="email" value= email placeholder= 'Email' class="input-bar"  required)
         div
-            label Password
-            input(type="text" name="password" value= password placeholder='Password' required)
+            input(type="password" name="password" value= password placeholder='Password' class="input-bar"  required)
         div
-            button(type="submit") Login
+            button(type="submit" class="form-submit-button") Login

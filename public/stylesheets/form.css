@@ -1,0 +1,16 @@
+.form{
+    background-color: #f5f9ff;
+    color: #292825;
+    box-sizing: border-box;
+
+}
+
+.input-bar{
+    background-color: white;
+    color: #292825;
+}
+
+.form-submit-button{
+    background-color: #5f9585;
+    color: #f5f9ff;
+}
