@@ -2,18 +2,18 @@ extends layout.pug
 
 block content
     div
-        h1=bookInfo.name
+        h1=`Title: ${bookInfo.name}`
     div
-        p=bookInfo.description
+        p=`Description: ${bookInfo.description}`
     div
-        p=bookInfo.releaseDate
+        p=`Release Date: ${bookInfo.releaseDate}`
     div
-        p=bookInfo.pageCount
+        p=`Page Count: ${bookInfo.pageCount}`
     div
         each author in bookInfo.Authors
-            p=author.name
+            p=`Authors: ${author.name}`
     div
-        p=bookInfo.Publisher.name
+        p=`Publisher Name: ${bookInfo.Publisher.name}`
     div
         each genre in bookInfo.Genres
-            p=genre.name
+            p=`Genres: ${genre.name}`

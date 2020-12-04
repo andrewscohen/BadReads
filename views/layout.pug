@@ -8,7 +8,9 @@ html
         link(rel='stylesheet', href='/stylesheets/form.css')
   body
     nav(class="nav-bar")
-      img(class="bad-reads-logo" src="../stylesheets/images/bad_reads.png")
+      div(id="bad-reads-logo")
+        a(href="/")
+          img(src="../stylesheets/images/bad_reads.png" id="bad-reads-logo")
       div
         span=locals.authenticated
         if locals.authenticated
