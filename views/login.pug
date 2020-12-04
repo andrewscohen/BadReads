@@ -7,7 +7,7 @@ block content
             each error in errors
                 li= error
 
-    form(action="/users/login", method="post" class="form")
+    form(action="/user/login", method="post" class="form")
         div
             h2 Login
             input(type="hidden" name="_csrf" value=csrfToken)
