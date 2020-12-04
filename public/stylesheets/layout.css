@@ -1,0 +1,22 @@
+.nav-bar {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style-type: none;
+    background-color: #f5f9ff;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    height: 5em;
+}
+
+.nav-bar-btn {
+    position: relative;
+    border-style: #292825;
+}
+
+
+.bad-reads-logo {
+    height: 100%;
+}
