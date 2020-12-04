@@ -4,15 +4,26 @@ html
       block head
         title="Bad Reads"
         link(rel='stylesheet' href='/stylesheets/reset.css')
+        link(rel="stylesheet" href="/stylesheets/layout.css")
         link(rel='stylesheet', href='/stylesheets/form.css')
+        script(type='text/javascript' src='/eventlistener.js')
   body
     div
-      div
-        h1
-        image
-      div
-        button
-        button
-        input(type="text")
+    nav(class="nav-bar")
+      img(class="bad-reads-logo" src="../stylesheets/images/bad_reads.png")
+      ul
+        div
+        if (!locals.authenticated)
+          li
+            button(type="button" class="nav-bar-btn" id="login-btn") Login
+        else
+        div
+          li
+            button(type="button" class="nav-bar-btn" id="log-out-btn") Logout
+        div
+          li
+            button(type="button" class="nav-bar-btn" id="demo-use-login-btn") Demo User
+        div
+          input(type="text" class="nav-search-bar" placeholder="Look for bad books..ew")
 
     block content

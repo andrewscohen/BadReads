@@ -4,8 +4,21 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING
   }, {});
   Author.associate = function(models) {
-    Author.belongsToMany(models.Book,{through: models.BookAuthor})
-    Author.belongsToMany(models.Genre,{through: models.AuthorGenre})
+
+    const bookAuthorMap = {
+      foriegnKey: "authorId",
+      through: "BookAuthor",
+      otherKey: "bookId"
+    }
+
+    const authorGenreMap = {
+      foreignKey: "authorId",
+      through: "AuthorGenre",
+      otherKey: "genreId"
+    }
+
+    Author.belongsToMany(models.Book, bookAuthorMap);
+    Author.belongsToMany(models.Genre, authorGenreMap);
 };
 return Author;
 };

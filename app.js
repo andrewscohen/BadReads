@@ -10,6 +10,7 @@ const cookieParser = require("cookie-parser");
 const morgan = require("morgan");
 const {router: indexRouter} = require("./routes/index");
 const usersRouter = require("./routes/users");
+const bookRouter = require("./routes/book-info");
 
 const app = express();
 app.set("view engine", "pug");
@@ -27,12 +28,14 @@ app.use(
     saveUninitialized: false,
     resave: false,
   })
-  );
+);
 
-  store.sync();
+store.sync();
 
-  app.use("/", indexRouter);
-  app.use("/users", usersRouter);
+app.use("/", indexRouter);
+app.use("/users", usersRouter);
+app.use("/book", bookRouter);
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
