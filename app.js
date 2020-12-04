@@ -12,6 +12,7 @@ const morgan = require("morgan");
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const bookRouter = require("./routes/book-info");
+const bookShelf = require("./routes/bookshelf");
 const { restoreUser } = require("./auth");
 
 const app = express();
@@ -37,6 +38,7 @@ app.use(restoreUser);
 app.use("/", indexRouter);
 app.use("/user", usersRouter);
 app.use("/book", bookRouter);
+app.use("/bookshelf", bookShelf);
 
 app.use(function (req, res, next) {
   next(createError(404));

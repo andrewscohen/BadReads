@@ -1,0 +1,23 @@
+extends layout.pug
+
+
+block content
+    div(class="bookshelf-container")
+        div(class="sidebar")
+            ul
+                li all
+                li unread
+                li currently reading
+                li read
+
+        div(class="main-page")
+            table
+                thead
+                    th status
+                    th rating
+                    th review
+                tbody
+                    each book in userBookInfo.Books
+                        td=book.UserBook.rating
+                        td=book.UserBook.review
+                        td=book.UserBook.status
