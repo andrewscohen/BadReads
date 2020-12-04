@@ -11,7 +11,7 @@ const userBookInfo = await db.User.findByPk(userId,{
  include: [
             {
                 model: db.Book,
-                through: {attributes:[db.UserBook.rating, db.UserBook.review, db.UserBook.status]}
+                through: {attributes:["rating","review","status"]}
             }
         ]
     })

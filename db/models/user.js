@@ -12,7 +12,13 @@ module.exports = (sequelize, DataTypes) => {
       otherKey: "friendId",
       as: "friends"
     }
-    User.belongsToMany(models.Book, { through: models.UserBook })
+    const userBookMap = {
+      foreignKey: "userId",
+      through: "UserBook",
+      otherKey: "bookId"
+    }
+
+    User.belongsToMany(models.Book, userBookMap)
     User.belongsToMany(models.User, userToUserMap)
 
   };

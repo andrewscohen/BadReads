@@ -17,7 +17,7 @@ block content
                     th rating
                     th review
                 tbody
-                    each book in userBookInfo
-                        td=book.rating
-                        td=book.review
-                        td=book.status
+                    each book in userBookInfo.Books
+                        td=book.UserBook.rating
+                        td=book.UserBook.review
+                        td=book.UserBook.status
