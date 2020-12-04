@@ -7,8 +7,8 @@ router.get(
   "/",
   asyncHandler(async (req, res) => {
     const books = await db.Book.findAll();
-    res.render("home", { title: "badReads", books });
+    res.render("home", { title: "Bad Reads", books });
   })
 );
 
-module.exports = { router };
+module.exports = router;

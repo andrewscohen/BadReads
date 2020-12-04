@@ -25,7 +25,6 @@ const validatePassword = async (req, res, user, password) => {
       password,
       user.password.toString()
     );
-
     if (passwordMatch) {
       AuthloginUser(req, res, user);
       return res.redirect("/");
@@ -60,6 +59,7 @@ router.post(
     });
 
     const validatorErrors = validationResult(req);
+
     if (validatorErrors.isEmpty()) {
       checkPassword(req, res, user, password);
     } else {
