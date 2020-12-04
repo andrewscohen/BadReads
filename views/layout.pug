@@ -10,6 +10,7 @@ html
     nav(class="nav-bar")
       img(class="bad-reads-logo" src="../stylesheets/images/bad_reads.png")
       div
+        span=locals.authenticated
         if locals.authenticated
           form(action="/user/logout" method="post")
             input(type="submit" value="Logout")

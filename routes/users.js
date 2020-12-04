@@ -11,29 +11,18 @@ const {
   signupValidators,
 } = require("./validators");
 
-const savePassword = async (request, response, currentUser, userPassword) => {
+const savePassword = async (currentUser, userPassword) => {
   const hashedPassword = await bcrypt.hash(userPassword, 10);
   currentUser.password = hashedPassword;
   await currentUser.save();
-  loginUser(request, response, currentUser);
-  response.redirect("/");
 };
 
-const validatePassword = async (
-  request,
-  response,
-  currentUser,
-  currentPassword
-) => {
+const validatePassword = async (currentUser, currentPassword) => {
   if (currentUser) {
     const passwordMatch = await bcrypt.compare(
       currentPassword,
       currentUser.password.toString()
     );
-    if (passwordMatch) {
-      console.log(passwordMatch);
-      loginUser(request, response, currentUser);
-    }
     return passwordMatch;
   }
 };
@@ -43,7 +32,6 @@ router.get(
   csrfProtection,
   asyncHandler(async (req, res) => {
     const user = await db.User.build();
-
     res.render("signup", {
       title: "Sign Up",
       user,
@@ -67,7 +55,9 @@ router.post(
     const validatorErrors = validationResult(req);
 
     if (validatorErrors.isEmpty()) {
-      savePassword(req, res, user, password);
+      savePassword(user, password);
+      loginUser(req, res, user);
+      res.redirect("/");
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
       res.render("signup", {
@@ -102,13 +92,15 @@ router.post(
 
     if (validatorErrors.isEmpty()) {
       const user = await db.User.findOne({ where: { email } });
-      const loggedin = validatePassword(req, res, user, password);
-      if (loggedin) return res.redirect("/");
+      const loggedin = validatePassword(user, password);
+      if (loggedin) {
+        loginUser(req, res, user);
+        return res.redirect("/");
+      }
       errors.push("Login failed for the provided email address and password");
     } else {
       errors = validatorErrors.array().map((error) => error.msg);
     }
-
     res.render("login", {
       title: "Login",
       email,
