@@ -7,7 +7,7 @@ const router = express.Router();
  //get
 router.get("/:id", asyncHandler(async(req, res) => {
 const userId = parseInt(req.params.id, 10);
-const userBookInfo = await db.User.findByPk(userId, {
+const userBookInfo = await db.User.findByPk(userId,{
  include: [
             {
                 model: db.Book,

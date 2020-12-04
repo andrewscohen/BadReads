@@ -9,6 +9,13 @@ module.exports = {
           rating: 5,
           status: "read",
         createdAt: new Date(),
+        updatedAt: new Date()},
+        { userId: 1,
+          bookId: 2,
+          review: "bad",
+          rating: 5,
+          status: "read",
+        createdAt: new Date(),
         updatedAt: new Date()}
     ]);
   },
