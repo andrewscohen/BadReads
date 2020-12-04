@@ -2,8 +2,8 @@ const express = require("express");
 const bcrypt = require("bcryptjs");
 const router = express.Router();
 
-const { csrfProtection, asyncHandler } = require("./index");
-
+const { AuthloginUser, logoutUser } = require("../auth.js");
+const { csrfProtection, asyncHandler } = require("./utils.js");
 const {
   db,
   validationResult,
@@ -11,12 +11,26 @@ const {
   signupValidators,
 } = require("./validators");
 
-const { AuthloginUser, logoutUser } = require("../auth");
+const checkPassword = async (req, res, user, password) => {
+  const hashedPassword = await bcrypt.hash(password, 10);
+  user.password = hashedPassword;
+  await user.save();
+  AuthloginUser(req, res, user);
+  res.redirect("/");
+};
 
-router.get("/", function (req, res, next) {
-  //query books
-  res.render("home");
-});
+const validatePassword = async (req, res, user, password) => {
+  if (user) {
+    const passwordMatch = await bcrypt.compare(
+      password,
+      user.password.toString()
+    );
+    if (passwordMatch) {
+      AuthloginUser(req, res, user);
+      return res.redirect("/");
+    }
+  }
+};
 
 router.get(
   "/signup",
@@ -38,7 +52,6 @@ router.post(
   signupValidators,
   asyncHandler(async (req, res) => {
     const { userName, email, password } = req.body;
-
     const user = await db.User.build({
       userName,
       email,
@@ -48,11 +61,7 @@ router.post(
     const validatorErrors = validationResult(req);
 
     if (validatorErrors.isEmpty()) {
-      const hashedPassword = await bcrypt.hash(password, 10);
-      user.password = hashedPassword;
-      await user.save();
-      AuthloginUser(req, res, user);
-      res.redirect("/");
+      checkPassword(req, res, user, password);
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
       res.render("signup", {
@@ -87,17 +96,7 @@ router.post(
 
     if (validatorErrors.isEmpty()) {
       const user = await db.User.findOne({ where: { email } });
-      if (user) {
-        const passwordMatch = await bcrypt.compare(
-          password,
-          user.password.toString()
-        );
-
-        if (passwordMatch) {
-          AuthloginUser(req, res, user);
-          return res.redirect("/");
-        }
-      }
+      validatePassword(req, res, user, password);
       errors.push("Login failed for the provided email address and password");
     } else {
       errors = validatorErrors.array().map((error) => error.msg);

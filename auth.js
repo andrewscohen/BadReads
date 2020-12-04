@@ -1,5 +1,4 @@
 const db = require("./db/models");
-const {session} = require('./app')
 
 const AuthloginUser = (req, res, user) => {
   req.session.auth = {
@@ -7,7 +6,7 @@ const AuthloginUser = (req, res, user) => {
   };
 };
 
-const logoutUser = (req, res, user) => {
+const logoutUser = (req, res) => {
   delete req.session.auth;
 };
 
