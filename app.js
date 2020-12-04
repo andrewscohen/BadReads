@@ -34,7 +34,7 @@ app.use(
 store.sync();
 
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
+app.use("/user", usersRouter);
 app.use("/book", bookRouter);
 
 app.use(function (req, res, next) {
