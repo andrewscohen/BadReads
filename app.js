@@ -12,6 +12,7 @@ const morgan = require("morgan");
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const bookRouter = require("./routes/book-info");
+const bookShelf = require('./routes/bookshelf')
 
 const app = express();
 app.set("view engine", "pug");
@@ -36,6 +37,7 @@ store.sync();
 app.use("/", indexRouter);
 app.use("/user", usersRouter);
 app.use("/book", bookRouter);
+app.use("/bookshelf", bookRouter);
 
 app.use(function (req, res, next) {
   next(createError(404));
