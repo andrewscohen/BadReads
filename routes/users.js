@@ -2,7 +2,7 @@ const express = require("express");
 const bcrypt = require("bcryptjs");
 const router = express.Router();
 
-const { AuthloginUser, logoutUser } = require("../auth.js");
+const { loginUser, logoutUser } = require("../auth.js");
 const { csrfProtection, asyncHandler } = require("./utils.js");
 const {
   db,
@@ -11,24 +11,19 @@ const {
   signupValidators,
 } = require("./validators");
 
-const checkPassword = async (req, res, user, password) => {
-  const hashedPassword = await bcrypt.hash(password, 10);
-  user.password = hashedPassword;
-  await user.save();
-  AuthloginUser(req, res, user);
-  res.redirect("/");
+const savePassword = async (currentUser, userPassword) => {
+  const hashedPassword = await bcrypt.hash(userPassword, 10);
+  currentUser.password = hashedPassword;
+  await currentUser.save();
 };
 
-const validatePassword = async (req, res, user, password) => {
-  if (user) {
+const validatePassword = async (currentUser, currentPassword) => {
+  if (currentUser) {
     const passwordMatch = await bcrypt.compare(
-      password,
-      user.password.toString()
+      currentPassword,
+      currentUser.password.toString()
     );
-    if (passwordMatch) {
-      AuthloginUser(req, res, user);
-      return res.redirect("/");
-    }
+    return passwordMatch;
   }
 };
 
@@ -37,7 +32,6 @@ router.get(
   csrfProtection,
   asyncHandler(async (req, res) => {
     const user = await db.User.build();
-
     res.render("signup", {
       title: "Sign Up",
       user,
@@ -61,7 +55,9 @@ router.post(
     const validatorErrors = validationResult(req);
 
     if (validatorErrors.isEmpty()) {
-      checkPassword(req, res, user, password);
+      savePassword(user, password);
+      loginUser(req, res, user);
+      res.redirect("/");
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
       res.render("signup", {
@@ -89,19 +85,22 @@ router.post(
   "/login",
   csrfProtection,
   loginValidators,
-  asyncHandler(async (req, res) => {
+  asyncHandler(async (req, res, next) => {
     let errors = [];
     const { email, password } = req.body;
     const validatorErrors = validationResult(req);
 
     if (validatorErrors.isEmpty()) {
       const user = await db.User.findOne({ where: { email } });
-      validatePassword(req, res, user, password);
+      const loggedin = validatePassword(user, password);
+      if (loggedin) {
+        loginUser(req, res, user);
+        return res.redirect("/");
+      }
       errors.push("Login failed for the provided email address and password");
     } else {
       errors = validatorErrors.array().map((error) => error.msg);
     }
-
     res.render("login", {
       title: "Login",
       email,
