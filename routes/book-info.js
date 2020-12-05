@@ -7,6 +7,7 @@ router.get(
   "/:id",
   asyncHandler(async (req, res) => {
     const bookId = parseInt(req.params.id, 10);
+    const genres = await db.Genre.findAll();
     const bookInfo = await db.Book.findByPk(bookId, {
       include: [
         {
@@ -20,7 +21,8 @@ router.get(
         { model: db.Publisher },
       ],
     });
-    res.render("book-info", { bookInfo });
+
+    res.render("book-info", { bookInfo,genres });
   })
 );
 

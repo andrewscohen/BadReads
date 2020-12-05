@@ -30,11 +30,13 @@ router.get(
   "/signup",
   csrfProtection,
   asyncHandler(async (req, res) => {
+    const genres = await db.Genre.findAll();
     const user = await db.User.build();
     res.render("signup", {
       title: "Sign Up",
       user,
       csrfToken: req.csrfToken(),
+      genres
     });
   })
 );
@@ -73,9 +75,11 @@ router.get(
   "/login",
   csrfProtection,
   asyncHandler(async (req, res) => {
+    const genres = await db.Genre.findAll();
     res.render("login", {
       title: "Login",
       csrfToken: req.csrfToken(),
+      genres
     });
   })
 );
