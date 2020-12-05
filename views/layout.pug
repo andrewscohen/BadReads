@@ -6,24 +6,51 @@ html
         link(rel='stylesheet' href='/stylesheets/reset.css')
         link(rel="stylesheet" href="/stylesheets/layout.css")
         link(rel='stylesheet', href='/stylesheets/form.css')
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css')
+        link(rel="preconnect" href="https://fonts.gstatic.com")
+        link(href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&display=swap" rel="stylesheet")
   body
+  section(class="main-page")
     nav(class="nav-bar")
-      div(id="bad-reads-logo")
-        a(href="/")
-          img(src="../stylesheets/images/bad_reads.png" id="bad-reads-logo")
-      div
-        if locals.authenticated
-          form(action="/user/logout" method="post")
-            input(type="submit" value="Logout")
-          a(href="/bookshelf"): button Bookshelf
-        else
-          div
-            span
-              a(href="/user/login"): button Login
-              form(action="/user/demo" method="post")
-                input(type="submit" value="Demo User")
-              a(href="/user/signup"): button Sign Up
-      div
-        input(type="text" class="nav-search-bar" placeholder="Look for bad books..ew")
+      div(class="nav-bar-left")
+        div(id="bad-reads-logo")
+          a(href="/")
+            img(src="../stylesheets/images/bad_reads.png" id="bad-reads-logo")
+        div(class="bad-tag-line")
+          p MISERY LOVES COMPANY
 
-    block content
+      div(class="nav-bar-right")
+        div
+          input(type="submit" value="Genre" class="nav-bar-btn")
+        div
+          input(type="submit" value="Sort By" class="nav-bar-btn")
+          select
+            each genre in genres
+              option=genre.name
+        div
+          if locals.authenticated
+            form(action="/user/logout" method="post")
+              input(type="submit" value="Logout" class="nav-bar-btn")
+          else
+            div
+              span
+                a(href="/user/login"): button Login
+                form(action="/user/demo" method="post" class="nav-bar-btn")
+                  input(type="submit" value="Demo User" class="nav-bar-btn")
+                a(href="/user/signup"): button Sign Up
+
+
+
+    //- end of books page
+
+
+
+
+
+
+
+
+  block content
+
+
+  footer(class="footer-bar")
