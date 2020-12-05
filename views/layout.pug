@@ -15,6 +15,7 @@ html
         if locals.authenticated
           form(action="/user/logout" method="post")
             input(type="submit" value="Logout")
+          a(href="/bookshelf"): button Bookshelf
         else
           div
             span

@@ -17,3 +17,18 @@ block content
     div
         each genre in bookInfo.Genres
             p=`Genres: ${genre.name}`
+    div
+        form(action=`/bookshelf/${bookInfo.id}/` method="post")
+                div
+                    label(for="rating") Rating
+                    input(type="number" name="rating")
+                div
+                    label(for="review") Review
+                    textarea(type="text" name="review")
+                div
+                    label(for="status") Read Status
+                    select(name="status")
+                        option(value="haveRead") Have Read
+                        option(value="reading") Reading
+                        option(value="wantToRead") Want To Read
+                input(type="submit" value="Submit")
