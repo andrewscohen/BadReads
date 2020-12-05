@@ -4,6 +4,7 @@ const { sequelize } = require("./db/models");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const store = new SequelizeStore({ db: sequelize });
 
+
 const createError = require("http-errors");
 const path = require("path");
 const cookieParser = require("cookie-parser");
@@ -17,6 +18,7 @@ const { restoreUser } = require("./auth");
 
 const app = express();
 app.set("view engine", "pug");
+app.locals.moment = require('moment');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

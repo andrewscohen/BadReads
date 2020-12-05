@@ -6,7 +6,7 @@ block content
     div
         p=`Description: ${bookInfo.description}`
     div
-        p=`Release Date: ${bookInfo.releaseDate}`
+        p=`Release Date: ${moment(bookInfo.releaseDate).format('MM/DD/YYYY')}`
     div
         p=`Page Count: ${bookInfo.pageCount}`
     div

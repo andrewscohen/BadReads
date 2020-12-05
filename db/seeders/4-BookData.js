@@ -7,6 +7,7 @@ module.exports = {
         name: "Twilight",
         description:
           "Twilight is about a young girl getting gaslit into believing her life is worth throwing away for a shimmery vampire.",
+        releaseDate: "2005-10-05",
         pageCount: 501,
         publisherId: 3,
         createdAt: new Date(),
@@ -15,6 +16,7 @@ module.exports = {
       {
         name: "New Moon",
         description: "the 2nd Twilight book",
+        releaseDate: "2006-09-06",
         pageCount: 563,
         publisherId: 3,
         createdAt: new Date(),
@@ -23,14 +25,16 @@ module.exports = {
       {
         name: "Eclipse",
         description: "the 3nd Twilight book",
-        pageCount:62,
-        publisherId:3,
+        releaseDate: "2007-08-07",
+        pageCount: 62,
+        publisherId: 3,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
         name: "Breaking Dawn",
         description: "the 4th Twilight book",
+        releaseDate: "2008-08-02",
         pageCount: 756,
         publisherId: 3,
         createdAt: new Date(),
@@ -39,6 +43,7 @@ module.exports = {
       {
         name: "Midnight Sun",
         description: "the 5th Twilight book",
+        releaseDate: "2020-08-04",
         pageCount: 662,
         publisherId: 3,
         createdAt: new Date(),
@@ -47,6 +52,7 @@ module.exports = {
       {
         name: "Fifty Shades of Grey",
         description: "the 1st Fifty Shades Book",
+        releaseDate: "2011-05-25",
         pageCount: 356,
         publisherId: 4,
         createdAt: new Date(),
@@ -55,6 +61,7 @@ module.exports = {
       {
         name: "Fifty Shades Darker",
         description: "the 2nd Fifty Shades Book",
+        releaseDate: "2011-09-13",
         pageCount: 532,
         publisherId: 6,
         createdAt: new Date(),
@@ -63,6 +70,7 @@ module.exports = {
       {
         name: "Fifty Shades Freed",
         description: "the 3rd Fifty Shades Book",
+        releaseDate: "2012-04-17",
         pageCount: 579,
         publisherId: 4,
         createdAt: new Date(),
@@ -71,6 +79,7 @@ module.exports = {
       {
         name: "The Great Gatsby",
         description: "This is a book. Read it or Don't",
+        releaseDate: "1925-04-10",
         pageCount: 200,
         publisherId: 7,
         createdAt: new Date(),
@@ -79,14 +88,16 @@ module.exports = {
       {
         name: "Grendel",
         description: "The reversed roll book about Beowulf and Grendel...why?",
-        pageCount:17,
-        publisherId:7,
+        releaseDate: "2010-06-02",
+        pageCount: 17,
+        publisherId: 7,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
         name: "First Step 2 Forever",
         description: "Justin Bieber wrote a book it seems..ew",
+        releaseDate: "2010-10-12",
         pageCount: 240,
         publisherId: 7,
         createdAt: new Date(),
@@ -95,6 +106,7 @@ module.exports = {
       {
         name: "A Shore Thing",
         description: "Snooki wrote a book it seems..ew",
+        releaseDate: "2011-01-04",
         pageCount: 289,
         publisherId: 8,
         createdAt: new Date(),
@@ -103,6 +115,7 @@ module.exports = {
       {
         name: "Dark Side of Darkness",
         description: "Darkness has never seemed darker",
+        releaseDate: "2015-12-03",
         pageCount: 250,
         publisherId: 9,
         createdAt: new Date(),
@@ -111,6 +124,7 @@ module.exports = {
       {
         name: "Journey to the Stars",
         description: "It's not about the journey, it's about the stars",
+        releaseDate: "2020-03-12",
         pageCount: 1,
         publisherId: 9,
         createdAt: new Date(),
@@ -119,6 +133,7 @@ module.exports = {
       {
         name: "Think Outside The Thing",
         description: "Try it, it won't hurt",
+        releaseDate: "1990-03-04",
         pageCount: 150,
         publisherId: 9,
         createdAt: new Date(),
@@ -127,6 +142,7 @@ module.exports = {
       {
         name: "I did it for the stats: social media and coolness explained",
         description: "A mathmatical approach to being a cool person...nerd",
+        releaseDate: "2018-04-16",
         pageCount: 314,
         publisherId: 9,
         createdAt: new Date(),
@@ -135,6 +151,7 @@ module.exports = {
       {
         name: "These Trees Are Moody",
         description: "They need help",
+        releaseDate: "2004-05-25",
         pageCount: 120,
         publisherId: 9,
         createdAt: new Date(),
@@ -142,6 +159,7 @@ module.exports = {
       },
       {
         name: "We're All Stardust: A Bedtime Story for Little Drunk Humans",
+        releaseDate: "2014-07-19",
         description: "I know you are, but what am I?",
         pageCount: 42,
         publisherId: 9,
@@ -151,6 +169,7 @@ module.exports = {
       {
         name: "The Life of a Crab Rangoon",
         description: "Delicious AND extra",
+        releaseDate: "2011-06-12",
         pageCount: 800,
         publisherId: 10,
         createdAt: new Date(),
@@ -159,6 +178,7 @@ module.exports = {
       {
         name: "Bad Eye Drops",
         description: "Do not use",
+        releaseDate: "2020-03-12",
         pageCount: 132,
         publisherId: 10,
         createdAt: new Date(),
@@ -167,6 +187,7 @@ module.exports = {
       {
         name: "Lights!",
         description: "A brief history of The Weeknd",
+        releaseDate: "2008-10-05",
         pageCount: 1000,
         publisherId: 10,
         createdAt: new Date(),
@@ -175,6 +196,7 @@ module.exports = {
       {
         name: "Murdering Last Summer?",
         description: "the smash prequel to Who Stole My Lip, Balm",
+        releaseDate: "1999-09-09",
         pageCount: 450,
         publisherId: 10,
         createdAt: new Date(),
@@ -183,6 +205,7 @@ module.exports = {
       {
         name: "Who Stole My Lip, Balm.",
         description: 'The smash prequel to "Murdering Last Summer" ',
+        releaseDate: "1987-12-24",
         pageCount: 345,
         publisherId: 10,
         createdAt: new Date(),
@@ -191,6 +214,7 @@ module.exports = {
       {
         name: "Recursion, Loop, Duck Wine",
         description: "The explination of the prequels for MLS and WSMLB",
+        releaseDate: "1987-12-27",
         pageCount: 345,
         publisherId: 10,
         createdAt: new Date(),
