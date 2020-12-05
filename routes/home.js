@@ -1,7 +1,7 @@
 const express = require("express");
+const { db, asyncHandler } = require("./utils.js");
+
 const router = express.Router();
-const db = require("../db/models");
-const { asyncHandler } = require("./utils.js");
 
 router.get(
   "/",

@@ -9,10 +9,10 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const morgan = require("morgan");
 
-const indexRouter = require("./routes/index");
+const homeRouter = require("./routes/home");
 const usersRouter = require("./routes/users");
 const bookRouter = require("./routes/book-info");
-const bookShelf = require("./routes/bookshelf");
+const bookshelfRouter = require("./routes/bookshelf");
 const { restoreUser } = require("./auth");
 
 const app = express();
@@ -35,10 +35,10 @@ app.use(
 
 store.sync();
 app.use(restoreUser);
-app.use("/", indexRouter);
+app.use("/", homeRouter);
 app.use("/user", usersRouter);
 app.use("/book", bookRouter);
-app.use("/bookshelf", bookShelf);
+app.use("/bookshelf", bookshelfRouter);
 
 app.use(function (req, res, next) {
   next(createError(404));

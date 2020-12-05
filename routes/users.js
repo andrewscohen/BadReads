@@ -3,9 +3,8 @@ const bcrypt = require("bcryptjs");
 const router = express.Router();
 
 const { loginUser, logoutUser } = require("../auth.js");
-const { csrfProtection, asyncHandler } = require("./utils.js");
+const { db, csrfProtection, asyncHandler } = require("./utils.js");
 const {
-  db,
   validationResult,
   loginValidators,
   signupValidators,

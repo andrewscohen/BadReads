@@ -1,6 +1,5 @@
 const express = require("express");
-const { db } = require("./validators.js");
-const { asyncHandler } = require("./utils.js");
+const { db, asyncHandler } = require("./utils.js");
 
 const router = express.Router();
 
@@ -22,7 +21,6 @@ router.get(
       ],
     });
     res.render("book-info", { bookInfo });
-    // res.json( { bookInfo });
   })
 );
 
