@@ -60,6 +60,7 @@ router.get(
   asyncHandler(async (req, res) => {
     const bookStatus = req.params.status
     const userId = await parseInt(req.session.auth.userId);
+    const genres = await db.Genre.findAll();
     const userBookInfo = await db.User.findByPk(userId, {
       where: {status:bookStatus},
       include: [
@@ -74,7 +75,7 @@ router.get(
         where : {status: bookStatus}
       }
     )
-    res.render("bookshelf", { userBookInfo,bookStatus });
+    res.render("bookshelf", { userBookInfo,bookStatus,genres });
     //  res.json({userBookInfo});
 })
 )
