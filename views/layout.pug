@@ -11,6 +11,18 @@ html
       div(id="bad-reads-logo")
         a(href="/")
           img(src="../stylesheets/images/bad_reads.png" id="bad-reads-logo")
+
+      div(class="bad-tag-line")
+        p MISERY LOVES COMPANY
+
+      div
+        input(type="submit" value="Genre" class=genre-btn)
+      div
+        input(type="submit" value="Sort By" class=sort-btn)
+        //- select
+        //-   each genre in genres
+        //-     option=genre.name
+
       div
         if locals.authenticated
           form(action="/user/logout" method="post")
@@ -23,6 +35,9 @@ html
                 input(type="submit" value="Demo User")
               a(href="/user/signup"): button Sign Up
       div
-        input(type="text" class="nav-search-bar" placeholder="Look for bad books..ew")
+
 
     block content
+
+
+    footer(class="footer-bar")
