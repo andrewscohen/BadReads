@@ -52,38 +52,23 @@ router.get(
   "/:status",
   asyncHandler(async (req, res) => {
     const bookStatus = req.params.status
-
+    const userId = await parseInt(req.session.auth.userId);
+    const userBookInfo = await db.User.findByPk(userId, {
+      where: {status:bookStatus},
+      include: [
+        {
+          model: db.Book,
+          through: { attributes: ["rating", "review", "status"] },
+        },
+      ],
+    })
     const status = await db.UserBook.findAll(
       {
         where : {status: bookStatus}
       }
     )
-    // if (bookStatus === "/read") {
-    //    await db.UserBook.findAll(
-    //     {
-    //       where: {status: "Have Read"}
-    //     }
-    //   )
-    // }
-    // if (bookStatus === "/currentlyReading") {
-    //   await db.UserBook.findAll(
-    //     {
-    //       where: {status: "Reading"}
-    //     }
-    //   )
-
-    // }
-    // if (bookStatus === "unread") {
-    //   await db.UserBook.findAll(
-    //     {
-    //       where: {status: "Want To Read"}
-    //     }
-    //   )
-    // }
-    // else {
-    //   await db.UserBook.findAll()
-    // }
-    res.render("bookshelf", { status });
+    // res.render("bookshelf", { userBookInfo,status });
+    res.json({status})
 })
 )
 

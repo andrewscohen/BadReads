@@ -12,11 +12,17 @@ block content
                     a(href= "/bookshelf/wantToRead")
                         button button
                 li currently reading
-                    a(href= "/bookshelf/Reading")
+                    a(href= "/bookshelf/reading")
                         button button
                 li read
                     a(href= "/bookshelf/haveRead")
                         button button
+            //- each book in status
+            //- ul
+            //-     li
+            //-     li
+            //-     li
+            //-     li
 
         div(class="main-page")
             table
@@ -29,6 +35,6 @@ block content
                     each book in userBookInfo.Books
                         tr
                             td=book.name
-                            td=book.UserBook.status
+                            td=
                             td=book.UserBook.rating
                             td=book.UserBook.review
