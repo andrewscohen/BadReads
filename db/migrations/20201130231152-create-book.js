@@ -16,7 +16,7 @@ module.exports = {
         type: Sequelize.TEXT
       },
       releaseDate: {
-        type: Sequelize.DATE
+        type: Sequelize.DATEONLY
       },
       pageCount: {
         type: Sequelize.INTEGER
@@ -24,7 +24,7 @@ module.exports = {
       publisherId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: {model: "Publishers"}
+        references: { model: "Publishers" }
       },
       createdAt: {
         allowNull: false,
