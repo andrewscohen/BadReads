@@ -48,4 +48,44 @@ router.post(
   })
 );
 
+router.get(
+  "/:status",
+  asyncHandler(async (req, res) => {
+    const bookStatus = req.params.status
+
+    const status = await db.UserBook.findAll(
+      {
+        where : {status: bookStatus}
+      }
+    )
+    // if (bookStatus === "/read") {
+    //    await db.UserBook.findAll(
+    //     {
+    //       where: {status: "Have Read"}
+    //     }
+    //   )
+    // }
+    // if (bookStatus === "/currentlyReading") {
+    //   await db.UserBook.findAll(
+    //     {
+    //       where: {status: "Reading"}
+    //     }
+    //   )
+
+    // }
+    // if (bookStatus === "unread") {
+    //   await db.UserBook.findAll(
+    //     {
+    //       where: {status: "Want To Read"}
+    //     }
+    //   )
+    // }
+    // else {
+    //   await db.UserBook.findAll()
+    // }
+    res.render("bookshelf", { status });
+})
+)
+
+
 module.exports = router;
