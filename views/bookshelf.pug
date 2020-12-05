@@ -13,11 +13,14 @@ block content
         div(class="main-page")
             table
                 thead
+                    th title
                     th status
                     th rating
                     th review
                 tbody
                     each book in userBookInfo.Books
-                        td=book.UserBook.rating
-                        td=book.UserBook.review
-                        td=book.UserBook.status
+                        tr
+                            td=book.name
+                            td=book.UserBook.status
+                            td=book.UserBook.rating
+                            td=book.UserBook.review
