@@ -2,6 +2,7 @@ extends layout.pug
 
 
 block content
-    each book in books
-        div(class="books")
-            a(href=`/book/${book.id}`)= book.name
+    section(class='content-window')
+        each book in books
+            div(class="books")
+                a(href=`/book/${book.id}`)= book.name

@@ -8,6 +8,7 @@ router.get(
   "/",
   asyncHandler(async (req, res) => {
     const userId = await parseInt(req.session.auth.userId);
+    const genres = await db.Genre.findAll();
     const userBookInfo = await db.User.findByPk(userId, {
       include: [
         {
@@ -16,7 +17,9 @@ router.get(
         },
       ],
     });
-    res.render("bookshelf", { userBookInfo });
+
+
+    res.render("bookshelf", { userBookInfo, genres });
   })
 );
 
