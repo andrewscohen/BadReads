@@ -85,7 +85,7 @@ router.post(
   "/login",
   csrfProtection,
   loginValidators,
-  asyncHandler(async (req, res, next) => {
+  asyncHandler(async (req, res) => {
     let errors = [];
     const { email, password } = req.body;
     const validatorErrors = validationResult(req);
@@ -107,6 +107,16 @@ router.post(
       errors,
       csrfToken: req.csrfToken(),
     });
+  })
+);
+
+router.post(
+  "/demo",
+  asyncHandler(async (req, res) => {
+    const email = "demo@demo.com";
+    const user = await db.User.findOne({ where: { email } });
+    loginUser(req, res, user);
+    res.redirect("/");
   })
 );
 

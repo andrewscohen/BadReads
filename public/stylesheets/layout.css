@@ -12,11 +12,10 @@
 }
 
 .nav-bar-btn {
-    position: relative;
+    /* position: relative; */
     border-style: #292825;
 }
 
-
-.bad-reads-logo {
+#bad-reads-logo {
     height: 100%;
 }
