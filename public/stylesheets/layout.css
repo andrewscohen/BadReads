@@ -2,6 +2,7 @@
     display: flex;
     justify-content: space-between;
     position: fixed;
+    /* overflow: hidden; */
     background-color: #f5f9ff;
     margin: 0;
     margin-bottom: 5em;
@@ -32,6 +33,7 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #292825;
     font-size: 2em;
+    position: relative;
 }
 
 .nav-bar-btn {
@@ -42,6 +44,12 @@
 }
 /* END OF NAV BAR */
 
+/* BEGIN CONTENT WINDOW  */
+.content-window{
+    /* position: relative; */
+    margin: 6em 1em
+}
+/* END CONTENT WINDOW  */
 
 /* BEGIN FOOTER */
 .footer {
