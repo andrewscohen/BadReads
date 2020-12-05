@@ -1,6 +1,5 @@
 const express = require("express");
-const { db } = require("./validators");
-const { asyncHandler } = require("./utils.js");
+const { db, asyncHandler } = require("./utils.js");
 
 const router = express.Router();
 

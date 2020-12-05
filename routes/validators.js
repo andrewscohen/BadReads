@@ -1,5 +1,5 @@
 const { check, validationResult } = require("express-validator");
-const db = require("../db/models");
+const { db } = require("./utils.js");
 
 const signupValidators = [
   check("userName")
