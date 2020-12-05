@@ -6,7 +6,7 @@ block content
         div(class="sidebar")
             ul
                 li all
-                    a(href= "/bookshelf/all")
+                    a(href= "/bookshelf")
                         button button
                 li unread
                     a(href= "/bookshelf/wantToRead")
@@ -33,8 +33,15 @@ block content
                     th review
                 tbody
                     each book in userBookInfo.Books
-                        tr
-                            td=book.name
-                            td=
-                            td=book.UserBook.rating
-                            td=book.UserBook.review
+                        if book.UserBook.status === bookStatus
+                            tr
+                                td=book.name
+                                td=book.UserBook.status
+                                td=book.UserBook.rating
+                                td=book.UserBook.review
+                        else if bookStatus === undefined
+                            tr
+                                td=book.name
+                                td=book.UserBook.status
+                                td=book.UserBook.rating
+                                td=book.UserBook.review

@@ -67,8 +67,8 @@ router.get(
         where : {status: bookStatus}
       }
     )
-    // res.render("bookshelf", { userBookInfo,status });
-    res.json({status})
+    res.render("bookshelf", { userBookInfo,bookStatus });
+    //  res.json({userBookInfo});
 })
 )
 
