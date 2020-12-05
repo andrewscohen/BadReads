@@ -36,6 +36,7 @@ router.post(
       userBook.review = review;
       userBook.rating = rating;
       await userBook.save();
+       res.redirect('/bookshelf');
     } else {
       await db.UserBook.create({
         userId,
@@ -44,7 +45,10 @@ router.post(
         rating,
         status,
       });
+      res.redirect('/bookshelf');
     }
+
+
   })
 );
 
