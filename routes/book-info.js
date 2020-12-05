@@ -22,7 +22,6 @@ router.get(
       ],
     });
     res.render("book-info", { bookInfo });
-    // res.json( { bookInfo });
   })
 );
 

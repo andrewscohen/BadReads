@@ -4,7 +4,6 @@ const { asyncHandler } = require("./utils.js");
 
 const router = express.Router();
 
-//get
 router.get(
   "/:id",
   asyncHandler(async (req, res) => {
@@ -18,7 +17,6 @@ router.get(
       ],
     });
     res.render("bookshelf", { userBookInfo });
-    // res.json(userBookInfo);
   })
 );
 
