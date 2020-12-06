@@ -1,9 +1,27 @@
-# 2020.11.badReads
+# Bad Reads : "Misery Loves Company"
 
-# Express Project Skeleton
+## Contributors 
+---
+- [Andrew Cohen](https://github.com/andrewscohen) 
+- [River Cha](https://github.com/cosmoscha)
+- [Ramses Romero](https://github.com/RamsesRomeroJr)
+- [William Vincent](https://github.com/WJVincent)
 
-Use this project skeleton as a starting point for structuring your app. Things to note
+## Technologies Used
+---
+- Postgres
+- NodeJS
+- Sequelize
+- Express
+- JavaScript
+- Pug
+- CSS
+- Git
 
-- Sequelize configuration has not yet been added -- you will need to set that up yourself
-- You may find yourself wanting to use javascript -- js files can be added in `public/javascripts` and should be appended to the Pug templates as needed
-- CSS files can go in `public/stylesheets` and also will need to be added to Pug templates
+## Main Features
+--- 
+- Flexible and maintainable database structure
+- User Authentication
+- User actions (i.e: User Reviews, Ratings, Bookshelves)
+- Sort books by genre
+- Hosted on Heroku
