@@ -1,0 +1,10 @@
+.sidebar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: lime;
+}
+
+.main-pagez {
+    position: right
+}

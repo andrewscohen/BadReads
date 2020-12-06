@@ -80,5 +80,12 @@ router.get(
 })
 )
 
+router.delete(
+  "/:status",
+  asyncHandler(async (req, res) => {
+
+  }))
+
+
 
 module.exports = router;
