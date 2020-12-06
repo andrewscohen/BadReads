@@ -2,25 +2,44 @@ extends layout.pug
 
 
 block content
-    div(class="bookshelf-container")
-        div(class="sidebar")
-            ul
-                li all
-                li unread
-                li currently reading
-                li read
+    section(class="content-window")
+        div(class="bookshelf-container")
+            div(class="sidebar")
+                ul(id="statusContainer")
+                    li
+                        a(href= "/bookshelf",class="status" )
+                            button all
+                    li
+                        a(href= "/bookshelf/wantToRead",class="status")
+                            button unread
+                    li
+                        a(href= "/bookshelf/reading",class="status")
+                            button currently reading
+                    li
+                        a(href= "/bookshelf/haveRead",class="status")
+                            button read
 
-        div(class="main-page")
-            table
-                thead
-                    th title
-                    th status
-                    th rating
-                    th review
-                tbody
-                    each book in userBookInfo.Books
-                        tr
-                            td=book.name
-                            td=book.UserBook.status
-                            td=book.UserBook.rating
-                            td=book.UserBook.review
+
+            div(class="main-pagez")
+                table
+                    thead
+                        th title
+                        th status
+                        th rating
+                        th review
+                    tbody
+                        each book in userBookInfo.Books
+                            if book.UserBook.status === bookStatus
+                                tr
+                                    td
+                                        a(href=`/book/${book.id}`)= book.name
+                                    td=book.UserBook.status
+                                    td=book.UserBook.rating
+                                    td=book.UserBook.review
+                            else if bookStatus === undefined
+                                tr
+                                    td
+                                        a(href=`/book/${book.id}`)= book.name
+                                    td=book.UserBook.status
+                                    td=book.UserBook.rating
+                                    td=book.UserBook.review

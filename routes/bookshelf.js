@@ -39,6 +39,7 @@ router.post(
       userBook.review = review;
       userBook.rating = rating;
       await userBook.save();
+       res.redirect('/bookshelf');
     } else {
       await db.UserBook.create({
         userId,
@@ -47,8 +48,44 @@ router.post(
         rating,
         status,
       });
+      res.redirect('/bookshelf');
     }
+
+
   })
 );
+
+router.get(
+  "/:status",
+  asyncHandler(async (req, res) => {
+    const bookStatus = req.params.status
+    const userId = await parseInt(req.session.auth.userId);
+    const genres = await db.Genre.findAll();
+    const userBookInfo = await db.User.findByPk(userId, {
+      where: {status:bookStatus},
+      include: [
+        {
+          model: db.Book,
+          through: { attributes: ["rating", "review", "status"] },
+        },
+      ],
+    })
+    const status = await db.UserBook.findAll(
+      {
+        where : {status: bookStatus}
+      }
+    )
+    res.render("bookshelf", { userBookInfo,bookStatus,genres });
+    //  res.json({userBookInfo});
+})
+)
+
+router.delete(
+  "/:status",
+  asyncHandler(async (req, res) => {
+
+  }))
+
+
 
 module.exports = router;

@@ -6,6 +6,7 @@ html
         link(rel='stylesheet' href='/stylesheets/reset.css')
         link(rel="stylesheet" href="/stylesheets/layout.css")
         link(rel='stylesheet', href='/stylesheets/form.css')
+        link(rel='stylesheet', href='/stylesheets/bookshelf.css')
         link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css')
         link(rel="preconnect" href="https://fonts.gstatic.com")
         link(href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&display=swap" rel="stylesheet")
@@ -31,6 +32,7 @@ html
           if locals.authenticated
             form(action="/user/logout" method="post")
               input(type="submit" value="Logout" class="nav-bar-btn")
+            a(href="/bookshelf"): button Profile
           else
             div
               span

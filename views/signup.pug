@@ -2,23 +2,24 @@ extends layout.pug
 
 
 block content
-    if errors
-        ul
-            p The following error(s) occured:
-            each error in errors
-                li= error
+    section(class="content-window")
+        if errors
+            ul
+                p The following error(s) occured:
+                each error in errors
+                    li= error
 
-    form(action="/user/signup" method="post" class="form")
-        div
-            h2 Sign Up For BadReads
-            input(type="hidden" name="_csrf" value= csrfToken)
-        div
-            input(type="text" name="userName" value=user.userName placeholder="Username" class="input-bar" required)
-        div
-            input(type="email" name="email" value=user.email placeholder="Email" class="input-bar" required)
-        div
-            input(type="password" name="password" value=user.password placeholder="Password" class="input-bar" required)
-        div
-            input(type="password" name="confirmPassword" placeholder="Confirm Password" class="input-bar" required)
-        div
-            button(type="submit" class="form-submit-button") Submit
+        form(action="/user/signup" method="post" class="form")
+            div
+                h2 Sign Up For BadReads
+                input(type="hidden" name="_csrf" value= csrfToken)
+            div
+                input(type="text" name="userName" value=user.userName placeholder="Username" class="input-bar" required)
+            div
+                input(type="email" name="email" value=user.email placeholder="Email" class="input-bar" required)
+            div
+                input(type="password" name="password" value=user.password placeholder="Password" class="input-bar" required)
+            div
+                input(type="password" name="confirmPassword" placeholder="Confirm Password" class="input-bar" required)
+            div
+                button(type="submit" class="form-submit-button") Submit

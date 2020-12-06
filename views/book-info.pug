@@ -1,34 +1,35 @@
 extends layout.pug
 
 block content
-    div
-        h1=`Title: ${bookInfo.name}`
-    div
-        p=`Description: ${bookInfo.description}`
-    div
-        p=`Release Date: ${moment(bookInfo.releaseDate).format('MM/DD/YYYY')}`
-    div
-        p=`Page Count: ${bookInfo.pageCount}`
-    div
-        each author in bookInfo.Authors
-            p=`Authors: ${author.name}`
-    div
-        p=`Publisher Name: ${bookInfo.Publisher.name}`
-    div
-        each genre in bookInfo.Genres
-            p=`Genres: ${genre.name}`
-    div
-        form(action=`/bookshelf/${bookInfo.id}/` method="post")
-                div
-                    label(for="rating") Rating
-                    input(type="number" name="rating")
-                div
-                    label(for="review") Review
-                    textarea(type="text" name="review")
-                div
-                    label(for="status") Read Status
-                    select(name="status")
-                        option(value="haveRead") Have Read
-                        option(value="reading") Reading
-                        option(value="wantToRead") Want To Read
-                input(type="submit" value="Submit")
+    section(class="content-window")
+        div
+            h1=`Title: ${bookInfo.name}`
+        div
+            p=`Description: ${bookInfo.description}`
+        div
+            p=`Release Date: ${moment(bookInfo.releaseDate).format('MM/DD/YYYY')}`
+        div
+            p=`Page Count: ${bookInfo.pageCount}`
+        div
+            each author in bookInfo.Authors
+                p=`Authors: ${author.name}`
+        div
+            p=`Publisher Name: ${bookInfo.Publisher.name}`
+        div
+            each genre in bookInfo.Genres
+                p=`Genres: ${genre.name}`
+        div
+            form(action=`/bookshelf/${bookInfo.id}/` method="post")
+                    div
+                        label(for="rating") Rating
+                        input(type="number" name="rating")
+                    div
+                        label(for="review") Review
+                        textarea(type="text" name="review")
+                    div
+                        label(for="status") Read Status
+                        select(name="status")
+                            option(value="haveRead") Have Read
+                            option(value="reading") Reading
+                            option(value="wantToRead") Want To Read
+                    input(type="submit" value="Submit")
