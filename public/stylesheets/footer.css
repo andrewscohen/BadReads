@@ -20,16 +20,14 @@
     display: grid;
     grid-area: person1;
     justify-content: space-around;
-    grid-template-areas: "a name b"
-                         "link c git ";
+    grid-template-areas: "name link git";
 }
 
 .person2 {
     display: grid;
     grid-area: person2;
     justify-content: space-around;
-    grid-template-areas: "a name b"
-                         "link c git ";
+    grid-template-areas: "name link git";
 }
 .project {
     display: grid;
@@ -42,27 +40,27 @@
     display: grid;
     grid-area: person3;
     justify-content: space-around;
-    grid-template-areas: "a name b"
-                         "link c git ";
+    grid-template-areas: "name link git";
 }
 .person4 {
     display: grid;
     grid-area: person4;
     justify-content: space-around;
-    grid-template-areas: "a name b"
-                         "link c git ";
+    grid-template-areas: "name link git";
 }
 
 .linkedIn{
     grid-area: link;
     /* padding-top: 6px; */
     margin: auto;
-    color: #0072b1;
+    color: #5f9585;
+
 }
 .git{
     grid-area: git;
     margin: auto;
      /* margin-bottom: 5px; */
+     color: #5f9585;
 }
 .name{
     grid-area: name;
@@ -72,4 +70,20 @@
 .title{
     grid-area: Title;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: none;
+    color: #5f9585;
+}
+.wiki{
+    grid-area: readMe;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: none;
+    color: #5f9585;
+}
+.button{
+    margin: auto;
+    background-color:#5f9585 ;
+    color: floralwhite;
+}
+.wikiButn{
+    align-self: center;
 }
