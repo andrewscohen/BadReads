@@ -69,13 +69,7 @@ router.get(
         },
       ],
     })
-    // const status = await db.UserBook.findAll(
-    //   {
-    //     where : {status: bookStatus}
-    //   }
-    // )
-    res.render("bookshelf", { userBookInfo,bookStatus,genres });
-    //  res.json({userBookInfo});
+  res.render("bookshelf", { userBookInfo,bookStatus,genres });
 })
 )
 
@@ -90,10 +84,7 @@ router.post(
       where: { userId, bookId },
     });
       await userBookInstance.destroy();
-      // await db.UserBook.save();
-
       res.redirect('/bookshelf');
-      // res.json({userBookInstance})
   })
 );
 
