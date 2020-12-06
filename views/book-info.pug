@@ -22,7 +22,12 @@ block content
             form(action=`/bookshelf/${bookInfo.id}/` method="post")
                     div
                         label(for="rating") Rating
-                        input(type="number" name="rating")
+                        select(name="rating")
+                            option 1
+                            option 2
+                            option 3
+                            option 4
+                            option 5
                     div
                         label(for="review") Review
                         textarea(type="text" name="review")

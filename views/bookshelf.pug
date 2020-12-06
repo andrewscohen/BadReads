@@ -23,6 +23,7 @@ block content
             div(class="main-pagez")
                 table
                     thead
+                        th
                         th title
                         th status
                         th rating
@@ -32,12 +33,18 @@ block content
                             if book.UserBook.status === bookStatus
                                 tr
                                     td
+                                        form(action=`/bookshelf/${book.id}/delete` method="post")
+                                            input(type="submit" value="delete")
+                                    td
                                         a(href=`/book/${book.id}`)= book.name
                                     td=book.UserBook.status
                                     td=book.UserBook.rating
                                     td=book.UserBook.review
                             else if bookStatus === undefined
                                 tr
+                                    td
+                                        form(action=`/bookshelf/${book.id}/delete` method="post")
+                                            input(type="submit" value="delete")
                                     td
                                         a(href=`/book/${book.id}`)= book.name
                                     td=book.UserBook.status

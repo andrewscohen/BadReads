@@ -33,7 +33,6 @@ router.post(
     const userBook = await db.UserBook.findOne({
       where: { userId, bookId },
     });
-    console.log(userBook);
     if (userBook) {
       userBook.status = status;
       userBook.review = review;
@@ -70,22 +69,24 @@ router.get(
         },
       ],
     })
-    // const status = await db.UserBook.findAll(
-    //   {
-    //     where : {status: bookStatus}
-    //   }
-    // )
-    res.render("bookshelf", { userBookInfo,bookStatus,genres });
-    //  res.json({userBookInfo});
+  res.render("bookshelf", { userBookInfo,bookStatus,genres });
 })
 )
 
-router.delete(
-  "/:status",
+router.post(
+  "/:bookId/delete",
+  requireAuth,
   asyncHandler(async (req, res) => {
-
-  }))
-
+    console.log("hello")
+    const userId = await parseInt(req.session.auth.userId);
+    const bookId = parseInt(req.params.bookId, 10);
+    const userBookInstance = await db.UserBook.findOne({
+      where: { userId, bookId },
+    });
+      await userBookInstance.destroy();
+      res.redirect('/bookshelf');
+  })
+);
 
 
 module.exports = router;
