@@ -9,3 +9,11 @@
 
 ## Technologies Used
 ---
+- Postgres
+- NodeJS
+- Sequelize
+- Express
+- JavaScript
+- Pug
+- CSS
+- Git
