@@ -17,3 +17,11 @@
 - Pug
 - CSS
 - Git
+
+## Main Features
+--- 
+- Flexible and maintainable database structure
+- User Authentication
+- User actions (i.e: User Reviews, Ratings, Bookshelves)
+- Sort books by genre
+- Hosted on Heroku
