@@ -1,0 +1,23 @@
+.container {
+    display: grid;
+    height: 100vh;
+    width: 50%;
+    /* background-color:grey; */
+    margin: auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 1em;
+}
+
+.book {
+    text-align: center;
+    background-color: #f5f9ff ;
+}
+
+.book-cover {
+    display: flex;
+    flex-direction: row-reverse;
+    align-content: center;
+    height: 100px;
+    width: auto;
+}

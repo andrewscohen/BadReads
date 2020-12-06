@@ -3,6 +3,10 @@ extends layout.pug
 
 block content
     section(class='content-window')
-        each book in books
-            div(class="books")
-                a(href=`/book/${book.id}`)= book.name
+        div(class="container")
+            each book in books
+                a(href=`/book/${book.id}` class="book")= book.name
+                    if (`../stylesheets/images/book-covers/${book.name}.png` === 404)
+                        img(src=`../stylesheets/images/book-covers/${book.name}.jpg` class="book-cover")
+                    else
+                         img(src=`../stylesheets/images/book-covers/${book.name}.png` class="book-cover")
