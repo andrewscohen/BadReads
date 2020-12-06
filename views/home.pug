@@ -3,6 +3,7 @@ extends layout.pug
 
 block content
     section(class='content-window')
+        p(class='genreName') #{genreName}
         each book in books
             div(class="books")
                 a(href=`/book/${book.id}`)= book.name
