@@ -20,33 +20,31 @@ block content
                             button read
 
 
-            div(class="main-pagez")
-                table
-                    thead
-                        th
-                        th title
-                        th status
-                        th rating
-                        th review
-                    tbody
-                        each book in userBookInfo.Books
-                            if book.UserBook.status === bookStatus
-                                tr
-                                    td
-                                        form(action=`/bookshelf/${book.id}/delete` method="post")
-                                            input(type="submit" value="delete")
-                                    td
-                                        a(href=`/book/${book.id}`)= book.name
-                                    td=book.UserBook.status
-                                    td=book.UserBook.rating
-                                    td=book.UserBook.review
-                            else if bookStatus === undefined
-                                tr
-                                    td
-                                        form(action=`/bookshelf/${book.id}/delete` method="post")
-                                            input(type="submit" value="delete")
-                                    td
-                                        a(href=`/book/${book.id}`)= book.name
-                                    td=book.UserBook.status
-                                    td=book.UserBook.rating
-                                    td=book.UserBook.review
+            section(class="main-pagez")
+                div(class= "bookshelftable")
+                    div(class= "bookshelfColumns")
+                        div
+                        div image
+                        div title
+                        div rating
+                        div review
+                        div(class="bscontainer")
+                            each book in userBookInfo.Books
+                                if book.UserBook.status === bookStatus
+                                    div(class= "bookshelfrow")
+                                        div
+                                            form(action=`/bookshelf/${book.id}/delete` method="post")
+                                                input(type="submit" value="delete")
+                                        h1
+                                            a(href=`/book/${book.id}`)= book.name
+                                        p=book.UserBook.rating
+                                        p=book.UserBook.review
+                                else if bookStatus === undefined
+                                    div(class= "bookshelfrow")
+                                        div
+                                            form(action=`/bookshelf/${book.id}/delete` method="post")
+                                                input(type="submit" value="delete")
+                                        h1
+                                            a(href=`/book/${book.id}`)= book.name
+                                        p=book.UserBook.rating
+                                        p=book.UserBook.review
