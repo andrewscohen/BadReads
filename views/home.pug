@@ -7,4 +7,4 @@ block content
         div(class="container")
             each book in books
                 a(href=`/book/${book.id}` class="book")= book.name
-                    img(src=`../stylesheets/images/book-covers/${book.name}.png` class="book-cover")
+                    img(src=`../stylesheets/images/book-covers/${book.id}.png` class="book-cover")
