@@ -70,11 +70,11 @@ router.get(
         },
       ],
     })
-    const status = await db.UserBook.findAll(
-      {
-        where : {status: bookStatus}
-      }
-    )
+    // const status = await db.UserBook.findAll(
+    //   {
+    //     where : {status: bookStatus}
+    //   }
+    // )
     res.render("bookshelf", { userBookInfo,bookStatus,genres });
     //  res.json({userBookInfo});
 })
