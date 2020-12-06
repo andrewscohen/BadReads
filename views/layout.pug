@@ -8,6 +8,7 @@ html
         link(rel='stylesheet', href='/stylesheets/form.css')
         link(rel='stylesheet', href='/stylesheets/bookshelf.css')
         link(rel='stylesheet', href='/stylesheets/books.css')
+        link(rel='stylesheet', href='/stylesheets/footer.css')
         link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css')
         link(rel="preconnect" href="https://fonts.gstatic.com")
         link(href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&display=swap" rel="stylesheet")
@@ -43,33 +44,16 @@ html
                   input(type="submit" value="Demo User" class="nav-bar-btn")
                 a(href="/user/signup"): button Sign Up
   block content
-  nav(class="footer-bar")
-        div(class="foot-bar-left")
-          div(id="bad-reads-logo")
-            a(href="/")
-              img(src="../stylesheets/images/bad_reads.png" id="bad-reads-logo")
-          div(class="bad-tag-line")
-            p MISERY LOVES COMPANY
 
-        div(class="foot-bar-right")
-          div
-            input(type="submit" value="Genre" class="foot-bar-btn")
-          div
-            input(type="submit" value="Sort By" class="foot-bar-btn")
-            select
-              each genre in genres
-                option=genre.name
-            each genre in genres
-              option=genre.name
-        div
-          if locals.authenticated
-            form(action="/user/logout" method="post")
-              input(type="submit" value="Logout" class="nav-bar-btn")
-            a(href="/bookshelf"): button Profile
-          else
-            div
-              span
-                a(href="/user/login"): button Login
-                form(action="/user/demo" method="post" class="nav-bar-btn")
-                  input(type="submit" value="Demo User" class="nav-bar-btn")
-                a(href="/user/signup"): button Sign Up
+  //footer
+
+  nav(class="footer-bar")
+        div(class="person1")
+          p(class='name') Andrew Cohen
+          i(class="fab fa-linkedin-in fa-lg fa-2x linkedIn")
+          i(class="fab fa-github-square fa-3x git")
+
+        div(class="person2")
+        div(class="project")
+        div(class="person3")
+        div(class="person4")
