@@ -1,5 +1,9 @@
 # Bad Reads : "Misery Loves Company"
 
+## Website Link
+---
+[Bad Reads](http://bad-reads-app.herokuapp.com/)
+
 ## Contributors 
 ---
 - [Andrew Cohen](https://github.com/andrewscohen) 
