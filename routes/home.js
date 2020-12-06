@@ -17,10 +17,6 @@ router.get(
   "/genreFilter",
   asyncHandler(async (req, res) => {
     const { genreId } = req.query;
-    console.log(genreId);
-    if (!genreId) {
-      res.redirect("/");
-    }
     const genres = await db.Genre.findAll();
 
     const books = await db.Book.findAll({
