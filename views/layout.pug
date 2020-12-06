@@ -25,11 +25,10 @@ html
           input(type="submit" value="Sort By" class="nav-bar-btn")
         div
           form(action=`/genreFilter` method='get')
-            select(name='genreId')
+            select(name='genreId' onchange="this.form.submit()")
               option(disabled selected) Filter Genre
               each genre in genres
                 option(value=genre.id)= genre.name
-            input(type="submit" value="Genre" class="nav-bar-btn")
         div
           if locals.authenticated
             form(action="/user/logout" method="post")
