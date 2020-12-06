@@ -27,7 +27,7 @@ html
         div
           form(action=`/genreFilter` method='get')
             select(name='genreId' onchange="this.form.submit()")
-              option(disabled selected) Filter Genre
+              option(disabled selected) -- Filter Genre --
               each genre in genres
                 option(value=genre.id)= genre.name
         div
