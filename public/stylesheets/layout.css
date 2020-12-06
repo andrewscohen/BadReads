@@ -1,3 +1,7 @@
+* {
+    background-color: #f5f9ff;
+}
+
 .nav-bar {
     display: flex;
     justify-content: space-between;
@@ -47,7 +51,7 @@
 /* BEGIN CONTENT WINDOW  */
 .content-window{
     /* position: relative; */
-    margin: 6em 1em
+    margin: 6em 1em;
 }
 /* END CONTENT WINDOW  */
 

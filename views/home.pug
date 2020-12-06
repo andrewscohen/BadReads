@@ -3,7 +3,8 @@ extends layout.pug
 
 block content
     section(class='content-window')
-        p(class='genreName') #{genreName}
-        each book in books
-            div(class="books")
-                a(href=`/book/${book.id}`)= book.name
+        p(class='genreName') Genre: #{genreName}
+        div(class="container")
+            each book in books
+                a(href=`/book/${book.id}` class="book")= book.name
+                    img(src=`../stylesheets/images/book-covers/${book.id}.png` class="book-cover")
