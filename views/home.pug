@@ -4,7 +4,7 @@ extends layout.pug
 block content
     section(class='content-window')
         if(genreName !== undefined)
-            p(class='genreName') Genre: #{genreName}
+            p(class='genreName') #{genreName}
         div(class="container")
             each book in books
                 a(href=`/book/${book.id}` class="book")= book.name
