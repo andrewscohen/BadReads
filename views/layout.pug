@@ -8,6 +8,7 @@ html
         link(rel='stylesheet', href='/stylesheets/form.css')
         link(rel='stylesheet', href='/stylesheets/bookshelf.css')
         link(rel='stylesheet', href='/stylesheets/books.css')
+        link(rel='stylesheet', href='/stylesheets/footer.css')
         link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css')
         link(rel="preconnect" href="https://fonts.gstatic.com")
         link(href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&display=swap" rel="stylesheet")
@@ -43,33 +44,41 @@ html
                   input(type="submit" value="Demo User" class="nav-bar-btn")
                 a(href="/user/signup"): button Sign Up
   block content
-  nav(class="footer-bar")
-        div(class="foot-bar-left")
-          div(id="bad-reads-logo")
-            a(href="/")
-              img(src="../stylesheets/images/bad_reads.png" id="bad-reads-logo")
-          div(class="bad-tag-line")
-            p MISERY LOVES COMPANY
 
-        div(class="foot-bar-right")
-          div
-            input(type="submit" value="Genre" class="foot-bar-btn")
-          div
-            input(type="submit" value="Sort By" class="foot-bar-btn")
-            select
-              each genre in genres
-                option=genre.name
-            each genre in genres
-              option=genre.name
-        div
-          if locals.authenticated
-            form(action="/user/logout" method="post")
-              input(type="submit" value="Logout" class="nav-bar-btn")
-            a(href="/bookshelf"): button Profile
-          else
-            div
-              span
-                a(href="/user/login"): button Login
-                form(action="/user/demo" method="post" class="nav-bar-btn")
-                  input(type="submit" value="Demo User" class="nav-bar-btn")
-                a(href="/user/signup"): button Sign Up
+  //footer
+
+  nav(class="footer-bar")
+        div(class="person1")
+          p(class='name') Andrew Cohen :
+          a(href="https://www.linkedin.com/in/mrandrewcohen/" class='linkedIn')
+            i(class="fab fa-linkedin")
+          a(href="https://github.com/andrewscohen" class='git')
+            i(class="fab fa-github-square  git")
+
+        div(class="person2")
+          p(class='name') Ramses Romero Jr :
+          a(href="https://www.linkedin.com/in/ramses-romero-jr/" class='linkedIn')
+            i(class="fab fa-linkedin")
+          a(href="https://github.com/RamsesRomeroJr" class='git')
+            i(class="fab fa-github-square  git")
+
+        div(class="project")
+          a(href="https://github.com/andrewscohen/2020.11.badReads" class="title")
+            button(type='button' class='button')= 'Git Hub Home'
+          a(href="https://github.com/andrewscohen/2020.11.badReads" class="wiki")
+            button(type='button' class='button wikiButn')= 'Wiki'
+          //- a(href="https://github.com/andrewscohen/2020.11.badReads" class="title") ReadMe
+
+        div(class="person3")
+          p(class='name') River Cha :
+          a(href="https://www.linkedin.com/in/river-cha-432337120/" class='linkedIn')
+            i(class="fab fa-linkedin")
+          a(href="https://github.com/cosmoscha" class='git')
+            i(class="fab fa-github-square  git")
+
+        div(class="person4")
+          p(class='name') William Vincent :
+          a(href="https://www.linkedin.com/in/william-vincent-5658851ba/" class='linkedIn')
+            i(class="fab fa-linkedin")
+          a(href="https://github.com/WJVincent" class='git')
+            i(class="fab fa-github-square  git")
