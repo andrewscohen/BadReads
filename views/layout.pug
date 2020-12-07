@@ -31,13 +31,12 @@ html
                 option(value=genre.id)= genre.name
         div
           if locals.authenticated
-            form(action="/user/logout" method="post")
+            form(action="/user/logout" method="post" class="nav-button-div")
               input(type="submit" value="Logout" class="nav-bar-btn")
-            a(href="/bookshelf"): button Bookshelf
+            a(href="/bookshelf" class="nav-button-div"): button(class="nav-bar-btn") Bookshelf
           else
             div
-              span
-                a(href="/user/login"): button Login
+                a(href="/user/login" class="nav-button-div"): button(class="nav-bar-btn") Login
   block content
 
   //footer
