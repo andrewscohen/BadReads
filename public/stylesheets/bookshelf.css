@@ -9,7 +9,7 @@
     background-color: #F5F9FF
 }
 .bookshelf-title {
-    font-size : 35px;
+    font-size : 30px;
     font-weight: bold
 }
 
@@ -20,9 +20,15 @@
 }
 
 .rating {
-    font-size: 24px;
-    background-color: #5F9585;
-    color: #f5f9ff;
+    font-size: 30px;
+    background-color:  #f5f9ff;
+    color: #292825;
+}
+
+.bookshelf-review {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .bookshelf-container {
     font-family: 'Titillium Web', sans-serif;
@@ -46,5 +52,5 @@
 }
 .book-name {
     text-decoration: none;
-    font-size: 24px
+    font-size: 20px
 }

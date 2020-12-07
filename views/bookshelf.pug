@@ -39,7 +39,7 @@ block content
                                             a(href=`/book/${book.id}`)
                                                 img(src=`../stylesheets/images/book-covers/${book.id}.png` class="book-cover")
                                     p(class="rating")=book.UserBook.rating
-                                    p=book.UserBook.review
+                                    p(class="bookshelf-review")= book.UserBook.review
                             else if bookStatus === undefined
                                 div(class= "bookshelf-column")
                                     div
@@ -50,4 +50,4 @@ block content
                                             a(href=`/book/${book.id}`)
                                                 img(src=`../stylesheets/images/book-covers/${book.id}.png` class="book-cover")
                                     p(class="rating")=book.UserBook.rating
-                                    p=book.UserBook.review
+                                    p(class="bookshelf-review")=book.UserBook.review
