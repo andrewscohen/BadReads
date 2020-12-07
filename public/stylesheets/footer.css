@@ -1,0 +1,107 @@
+/* BEGIN FOOTER */
+.footer-bar {
+    font-family: 'Titillium Web', sans-serif;
+    box-shadow: 0px -1px 2px 1px #8b8c8f;
+    display: grid;
+    justify-content: space-around;
+    position: fixed;
+    grid-template-areas: 'person1 person2 project person3 person4';
+    /* overflow: hidden; */
+    background-color: #f5f9ff;
+    margin: 0;
+    /* margin-top: 3em; */
+    padding: 0;
+    height: 4em;
+    bottom: 0;
+    width: 100%;
+}
+
+.person1 {
+    display: grid;
+    grid-area: person1;
+    justify-content: space-around;
+    grid-template-areas: "name link git";
+}
+
+.person2 {
+    display: grid;
+    grid-area: person2;
+    justify-content: space-around;
+    grid-template-areas: "name link git";
+}
+.project {
+    display: grid;
+    grid-area: project;
+    grid-template-areas: "Title"
+                         "readMe"
+                         "wiki";
+}
+.person3 {
+    display: grid;
+    grid-area: person3;
+    justify-content: space-around;
+    grid-template-areas: "name link git";
+}
+.person4 {
+    display: grid;
+    grid-area: person4;
+    justify-content: space-around;
+    grid-template-areas: "name link git";
+}
+
+.linkedIn{
+    grid-area: link;
+    /* padding-top: 6px; */
+    margin: auto;
+    color: #5f9585;
+    margin-left: auto;
+    margin-left: 5px;
+
+}
+.git{
+    grid-area: git;
+    margin: auto;
+     /* margin-bottom: 5px; */
+     color: #5f9585;
+     margin-left: 5px;
+}
+.name{
+    grid-area: name;
+    margin: auto;
+    /* margin-top: auto; */
+}
+.title{
+    grid-area: Title;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: none;
+    /* color: #5f9585; */
+    justify-self: center;
+    margin-top: auto;
+}
+.wiki{
+    grid-area: readMe;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: none;
+    /* color: #5f9585; */
+    justify-self: center;
+    margin-top: auto;
+}
+.button{
+    margin: auto;
+    background-color:#5f9585 ;
+    color: #292825;
+    border-radius: 6px;
+    /* border-style: dashed 2px black; */
+    background: transparent;
+    border:1px solid #292825;
+}
+.button:hover{
+    background-color: #5f9585;
+    color: #F5F9FF;
+    transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+}
+.wikiButn{
+    align-self: center;
+}
