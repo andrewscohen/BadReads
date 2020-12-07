@@ -89,10 +89,18 @@
 .button{
     margin: auto;
     background-color:#5f9585 ;
-    color: floralwhite;
+    color: #292825;
     border-radius: 6px;
     /* border-style: dashed 2px black; */
-    border:none;
+    background: transparent;
+    border:1px solid #292825;
+}
+.button:hover{
+    background-color: #5f9585;
+    color: #F5F9FF;
+    transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
 }
 .wikiButn{
     align-self: center;
