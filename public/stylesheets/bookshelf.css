@@ -1,43 +1,50 @@
-
-.bookshelf-column {
-    display:grid;
-    grid-template-columns: 1fr 0.75fr minmax(20px, 1fr);
-    justify-content: space-around;
-    align-items: center;
-    text-align: center;
-    /* padding-top: 100px; */
-    border: 1px solid #000000;
-    background-color: #F5F9FF;
+.bookshelf-container {
+    font-family: 'Titillium Web', sans-serif;
+    display: grid;
+    grid-template-columns: 1fr 10fr;
 }
 
+.sidebar {
+    display: flex;
+    flex-direction: row;
+    background-color:#dde1f0;
+}
+.status-container {
+    list-style-type: none;
+}
+.bookshelf-title {
+    font-size : 30px;
+    font-weight: bold;
+}
 .bookshelf-titlebar {
     display: flex;
     justify-content: space-around;
     position: fixed;
-    /* overflow: hidden; */
     background-color: #f5f9ff;
-    /* margin-right:5em; */
-    /* margin: 6em 1em; */
-    /* margin-bottom: 5em; */
     height: 5em;
     width: 89.4%;
     box-shadow: 0 4px 2px -2px #8b8c8f;
     border: 1px solid #000000;
     background-color: #F5F9FF;
 }
-
-
-.bookshelf-title {
-    font-size : 30px;
-    font-weight: bold;
+.bsscontainer {
+    padding-top:81px;
+    padding-bottom: 50px;
+}
+.bookshelf-column {
+    display:grid;
+    grid-template-columns: 1fr 0.75fr minmax(20px, 1fr);
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    border: 1px solid #000000;
+    background-color: #F5F9FF;
 }
 
-
-.main-page {
-    display: grid;
-    grid-template-rows: 1fr 5fr;
+.book-name {
+    text-decoration: none;
+    font-size: 20px;
 }
-
 .rating {
     font-size: 30px;
     background-color:  #f5f9ff;
@@ -49,31 +56,20 @@
     align-items: center;
     justify-content: center;
 }
-.bookshelf-container {
-    font-family: 'Titillium Web', sans-serif;
-    display: grid;
-    grid-template-columns: 1fr 10fr;
-}
-.sidebar {
-    display: flex;
-    flex-direction: row;
-    background-color:#8B8C8F;
-
-
-}
-
 .bookshelf-button {
-    background-color: #5F9585;
+    font-family: "Titillium Web", sans-serif;
+    margin: auto;
+    background-color: #5f9585;
+    color: #292825;
+    border-radius: 6px;
+    background: transparent;
+    border: 1px solid #292825;
+  }
+
+  .bookshelf-button:hover {
+    background-color: #5f9585;
     color: #f5f9ff;
-    border: solid;
-    border-color:#292825;
-    border-radius: 4px;
-}
-.book-name {
-    text-decoration: none;
-    font-size: 20px;
-}
-.bsscontainer {
-    padding-top:81px;
-    padding-bottom: 50px;
-}
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+  }
