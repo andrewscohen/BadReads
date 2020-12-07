@@ -1,30 +1,50 @@
 
-.bookshelfColumns {
+.bookshelf-column {
     display:grid;
-    grid-template-columns: 1fr auto 4fr 1fr 4fr;
+    grid-template-columns: 0.5fr 2fr 1fr 2fr;
     justify-content: space-around;
     align-items: center;
     text-align: center;
-    background-color:lightblue;
+    border: 1px solid #000000;
+    background-color: #F5F9FF
+}
+.bookshelf-title {
+    font-size : 35px;
+    font-weight: bold
 }
 
-.main-pagez {
+
+.main-page {
     display: grid;
     grid-template-rows: 1fr 5fr;
 }
-.bookshelfrow {
-    display:grid;
-    grid-template-columns: 1fr auto 4fr 1fr 4fr;
-    justify-content: space-around;
-    align-items: center;
-    text-align: center;
-    background-color:lightblue;
+
+.rating {
+    font-size: 24px;
+    background-color: #5F9585;
+    color: #f5f9ff;
 }
-.bsscontainer {
+.bookshelf-container {
+    font-family: 'Titillium Web', sans-serif;
     display: grid;
+    grid-template-columns: 1fr 10fr;
+}
+.sidebar {
+    display: flex;
+    flex-direction: row;
+    background-color:#8B8C8F;
     height: 100vh;
-    width: 100%;
-    margin: auto;
-    grid-template-rows: 1fr auto 4fr 1fr 4fr;
-    grid-gap: 1em;
+
+}
+
+.bookshelf-button {
+    background-color: #5F9585;
+    color: #f5f9ff;
+    border: solid;
+    border-color:#292825;
+    border-radius: 4px;
+}
+.book-name {
+    text-decoration: none;
+    font-size: 24px
 }

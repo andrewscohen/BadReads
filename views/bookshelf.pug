@@ -8,47 +8,46 @@ block content
                 ul(id="statusContainer")
                     li
                         a(href= "/bookshelf",class="status" )
-                            button all
+                            button(class="bookshelf-button") all
                     li
                         a(href= "/bookshelf/wantToRead",class="status")
-                            button unread
+                            button(class="bookshelf-button") want to read
                     li
                         a(href= "/bookshelf/reading",class="status")
-                            button currently reading
+                            button(class="bookshelf-button") reading
                     li
                         a(href= "/bookshelf/haveRead",class="status")
-                            button read
+                            button(class="bookshelf-button") have read
 
 
             section(class="main-pagez")
                 div(class= "bookshelftable")
-                    div(class= "bookshelfColumns")
-                        div delete
-                        div image
-                        div title
-                        div rating
-                        div review
+                    div(class= "bookshelf-column")
+                        div(class="bookshelf-title")
+                        div(class="bookshelf-title") title
+                        div(class="bookshelf-title") rating
+                        div(class="bookshelf-title") review
                     div(class="bsscontainer")
                         each book in userBookInfo.Books
                             if book.UserBook.status === bookStatus
-                                div(class= "bookshelfrow")
+                                div(class= "bookshelf-column")
                                     div
                                         form(action=`/bookshelf/${book.id}/delete` method="post")
-                                            input(type="submit" value="delete")
-                                    div
-                                        img(src=`../stylesheets/images/book-covers/${book.id}.png` class="book-cover")
+                                            input(class="bookshelf-button" type="submit" value="remove")
                                     h1
-                                        a(href=`/book/${book.id}`)= book.name
-                                    p=book.UserBook.rating
+                                        a(class="book-name" href=`/book/${book.id}`)= book.name
+                                            a(href=`/book/${book.id}`)
+                                                img(src=`../stylesheets/images/book-covers/${book.id}.png` class="book-cover")
+                                    p(class="rating")=book.UserBook.rating
                                     p=book.UserBook.review
                             else if bookStatus === undefined
-                                div(class= "bookshelfrow")
+                                div(class= "bookshelf-column")
                                     div
                                         form(action=`/bookshelf/${book.id}/delete` method="post")
-                                            input(type="submit" value="delete")
-                                    div
-                                        img(src=`../stylesheets/images/book-covers/${book.id}.png` class="book-cover")
+                                            input(class="bookshelf-button" type="submit" value="remove")
                                     h1
-                                        a(href=`/book/${book.id}`)= book.name
-                                    p=book.UserBook.rating
+                                        a(class="book-name" href=`/book/${book.id}`)= book.name
+                                            a(href=`/book/${book.id}`)
+                                                img(src=`../stylesheets/images/book-covers/${book.id}.png` class="book-cover")
+                                    p(class="rating")=book.UserBook.rating
                                     p=book.UserBook.review
