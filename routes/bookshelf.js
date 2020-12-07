@@ -18,7 +18,6 @@ router.get(
       ],
     });
 
-
     res.render("bookshelf", { userBookInfo, genres });
   })
 );
@@ -38,7 +37,7 @@ router.post(
       userBook.review = review;
       userBook.rating = rating;
       await userBook.save();
-       res.redirect('/bookshelf');
+      res.redirect("/bookshelf");
     } else {
       await db.UserBook.create({
         userId,
@@ -47,46 +46,43 @@ router.post(
         rating,
         status,
       });
-      res.redirect('/bookshelf');
+      res.redirect("/bookshelf");
     }
-
-
   })
 );
 
 router.get(
   "/:status",
   asyncHandler(async (req, res) => {
-    const bookStatus = req.params.status
+    const bookStatus = req.params.status;
     const userId = await parseInt(req.session.auth.userId);
     const genres = await db.Genre.findAll();
     const userBookInfo = await db.User.findByPk(userId, {
-      where: {status:bookStatus},
+      where: { status: bookStatus },
       include: [
         {
           model: db.Book,
           through: { attributes: ["rating", "review", "status"] },
         },
       ],
-    })
-  res.render("bookshelf", { userBookInfo,bookStatus,genres });
-})
-)
+    });
+    res.render("bookshelf", { userBookInfo, bookStatus, genres });
+  })
+);
 
 router.post(
   "/:bookId/delete",
   requireAuth,
   asyncHandler(async (req, res) => {
-    console.log("hello")
+    console.log("hello");
     const userId = await parseInt(req.session.auth.userId);
     const bookId = parseInt(req.params.bookId, 10);
     const userBookInstance = await db.UserBook.findOne({
       where: { userId, bookId },
     });
-      await userBookInstance.destroy();
-      res.redirect('/bookshelf');
+    await userBookInstance.destroy();
+    res.redirect("/bookshelf");
   })
 );
-
 
 module.exports = router;
