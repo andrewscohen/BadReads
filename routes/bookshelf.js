@@ -74,7 +74,6 @@ router.post(
   "/:bookId/delete",
   requireAuth,
   asyncHandler(async (req, res) => {
-    console.log("hello");
     const userId = await parseInt(req.session.auth.userId);
     const bookId = parseInt(req.params.bookId, 10);
     const userBookInstance = await db.UserBook.findOne({
