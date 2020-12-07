@@ -5,7 +5,7 @@ block content
     section(class="content-window")
         div(class="bookshelf-container")
             div(class="sidebar")
-                ul(id="statusContainer")
+                ul(class="status-container")
                     li
                         a(href= "/bookshelf",class="status" )
                             button(class="bookshelf-button") all
@@ -37,7 +37,7 @@ block content
                                         div
                                             form(action=`/bookshelf/${book.id}/delete` method="post")
                                                 input(class="bookshelf-button" type="submit" value="remove")
-                                    p(class="rating")=book.UserBook.rating
+                                    p(class="rating")=`${book.UserBook.rating}/5`
                                     p(class="bookshelf-review")= book.UserBook.review
                             else if bookStatus === undefined
                                 div(class= "bookshelf-column")
@@ -48,5 +48,5 @@ block content
                                         div
                                             form(action=`/bookshelf/${book.id}/delete` method="post")
                                                 input(class="bookshelf-button" type="submit" value="remove")
-                                    p(class="rating")=book.UserBook.rating
+                                    p(class="rating")=`${book.UserBook.rating}/5`
                                     p(class="bookshelf-review")= book.UserBook.review
