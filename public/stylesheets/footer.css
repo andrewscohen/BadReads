@@ -54,13 +54,15 @@
     /* padding-top: 6px; */
     margin: auto;
     color: #5f9585;
-
+    margin-left: auto;
+    margin-left: 5px;
 }
 .git{
     grid-area: git;
     margin: auto;
      /* margin-bottom: 5px; */
      color: #5f9585;
+     margin-left: 5px;
 }
 .name{
     grid-area: name;
@@ -72,17 +74,21 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-decoration: none;
     color: #5f9585;
+    justify-self: center;
+    margin-top: auto;
 }
 .wiki{
     grid-area: readMe;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-decoration: none;
     color: #5f9585;
+    justify-self: center;
+    margin-top: auto;
 }
 .button{
     margin: auto;
     background-color:#5f9585 ;
-    color: floralwhite;
+    color: #F5F9FF;
 }
 .wikiButn{
     align-self: center;
