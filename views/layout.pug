@@ -24,8 +24,6 @@ html
 
       div(action="/" class="nav-bar-right")
         div
-          input(type="submit" value="Sort By" class="nav-bar-btn")
-        div
           form(action=`/genreFilter` method='get')
             select(name='genreId' onchange="this.form.submit()")
               option(disabled selected) -- Filter Genre --
@@ -35,14 +33,11 @@ html
           if locals.authenticated
             form(action="/user/logout" method="post")
               input(type="submit" value="Logout" class="nav-bar-btn")
-            a(href="/bookshelf"): button Profile
+            a(href="/bookshelf"): button Bookshelf
           else
             div
               span
                 a(href="/user/login"): button Login
-                form(action="/user/demo" method="post" class="nav-bar-btn")
-                  input(type="submit" value="Demo User" class="nav-bar-btn")
-                a(href="/user/signup"): button Sign Up
   block content
 
   //footer
@@ -67,7 +62,7 @@ html
             button(type='button' class='button')= 'Project Repository'
           a(href="https://github.com/andrewscohen/2020.11.badReads" class="wiki")
             button(type='button' class='button wikiButn')= 'Project Wiki'
-      
+
 
         div(class="person3")
           p(class='name') River Cha:
