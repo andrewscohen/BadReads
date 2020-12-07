@@ -21,33 +21,32 @@ block content
 
 
             section(class="main-pagez")
-                div(class= "bookshelftable")
-                    div(class= "bookshelf-column")
-                        div(class="bookshelf-title")
-                        div(class="bookshelf-title") title
-                        div(class="bookshelf-title") rating
-                        div(class="bookshelf-title") review
+                div(class= "bookshelf-table")
+                    div(class= "bookshelf-titlebar")
+                        div(class= "bookshelf-title") title
+                        div(class= "bookshelf-title") rating
+                        div(class= "bookshelf-title") review
                     div(class="bsscontainer")
                         each book in userBookInfo.Books
                             if book.UserBook.status === bookStatus
                                 div(class= "bookshelf-column")
-                                    div
-                                        form(action=`/bookshelf/${book.id}/delete` method="post")
-                                            input(class="bookshelf-button" type="submit" value="remove")
                                     h1
                                         a(class="book-name" href=`/book/${book.id}`)= book.name
                                             a(href=`/book/${book.id}`)
                                                 img(src=`../stylesheets/images/book-covers/${book.id}.png` class="book-cover")
+                                        div
+                                            form(action=`/bookshelf/${book.id}/delete` method="post")
+                                                input(class="bookshelf-button" type="submit" value="remove")
                                     p(class="rating")=book.UserBook.rating
                                     p(class="bookshelf-review")= book.UserBook.review
                             else if bookStatus === undefined
                                 div(class= "bookshelf-column")
-                                    div
-                                        form(action=`/bookshelf/${book.id}/delete` method="post")
-                                            input(class="bookshelf-button" type="submit" value="remove")
                                     h1
                                         a(class="book-name" href=`/book/${book.id}`)= book.name
                                             a(href=`/book/${book.id}`)
                                                 img(src=`../stylesheets/images/book-covers/${book.id}.png` class="book-cover")
+                                        div
+                                            form(action=`/bookshelf/${book.id}/delete` method="post")
+                                                input(class="bookshelf-button" type="submit" value="remove")
                                     p(class="rating")=book.UserBook.rating
-                                    p(class="bookshelf-review")=book.UserBook.review
+                                    p(class="bookshelf-review")= book.UserBook.review
