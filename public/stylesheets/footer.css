@@ -1,7 +1,7 @@
 /* BEGIN FOOTER */
 .footer-bar {
     font-family: 'Titillium Web', sans-serif;
-    box-shadow: 0px -1px 2px 2px #8b8c8f;
+    box-shadow: 0px -1px 2px 1px #8b8c8f;
     display: grid;
     justify-content: space-around;
     position: fixed;
@@ -56,6 +56,7 @@
     color: #5f9585;
     margin-left: auto;
     margin-left: 5px;
+
 }
 .git{
     grid-area: git;
@@ -73,7 +74,7 @@
     grid-area: Title;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-decoration: none;
-    color: #5f9585;
+    /* color: #5f9585; */
     justify-self: center;
     margin-top: auto;
 }
@@ -81,14 +82,17 @@
     grid-area: readMe;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-decoration: none;
-    color: #5f9585;
+    /* color: #5f9585; */
     justify-self: center;
     margin-top: auto;
 }
 .button{
     margin: auto;
     background-color:#5f9585 ;
-    color: #F5F9FF;
+    color: floralwhite;
+    border-radius: 6px;
+    /* border-style: dashed 2px black; */
+    border:none;
 }
 .wikiButn{
     align-self: center;
