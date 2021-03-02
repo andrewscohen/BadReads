@@ -88,7 +88,7 @@ To get started follow the following steps
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/RamsesRomeroJr/HypeGeek.git
+   git clone https://github.com/andrewscohen/2020.11.badReads.git
    ```
 2. Install NPM packages
    ```sh
@@ -100,16 +100,16 @@ To get started follow the following steps
 ## Usage
 
 - Demo Login
-<img src="https://raw.githubusercontent.com/andrewscohen/2020.11.badReads/ReadMe-Update/public/BadReads-DemoLogin.gif" /> 
+<img src="https://raw.githubusercontent.com/andrewscohen/2020.11.badReads/main/public/BadReads-DemoLogin.gif" /> 
 
 - Filtering Books by Genre
-<img src="https://github.com/andrewscohen/2020.11.badReads/blob/ReadMe-Update/public/BadReads-HomeGenreFilter.gif?raw=true" />
+<img src="https://github.com/andrewscohen/2020.11.badReads/blob/main/public/BadReads-HomeGenreFilter.gif?raw=true" />
 
 - Be able to set Rating, Review and Status of the book (Ex: Reading, Want to Read and Read)
-<img src="https://github.com/andrewscohen/2020.11.badReads/blob/ReadMe-Update/public/BadReads-RatingReview.gif?raw=true" />
+<img src="https://github.com/andrewscohen/2020.11.badReads/blob/main/public/BadReads-RatingReview.gif?raw=true" />
 
 - Filter Own Bookshelf by book status
-<img src="https://github.com/andrewscohen/2020.11.badReads/blob/ReadMe-Update/public/BadReads-BookshelfFilter.gif?raw=true" />
+<img src="https://github.com/andrewscohen/2020.11.badReads/blob/main/public/BadReads-BookshelfFilter.gif?raw=true" />
 
 
 <!-- ROADMAP -->
