@@ -12,7 +12,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/andrewscohen/2020.11.badReads">
-    <img src="https://raw.githubusercontent.com/andrewscohen/2020.11.badReads/main/public/favicon.ico" alt="Logo" width="80" height="80">
+    <img src="https://user-images.githubusercontent.com/67562159/113820463-baa8db80-9748-11eb-934b-2119ed27bf73.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Bad Reads</h3>
